@@ -27,12 +27,19 @@ return {
         local lsp_server = require("mason-lspconfig")
             .get_installed_servers()
 
+        -- Setup languages installed from Mason with
+        -- their default settings
         for _, v in pairs(lsp_server) do
             if v ~= "jdtls" then
                 lsp_config[v].setup({
                     capabilities = capabilities })
             end
         end
+
+        -------------------------------------
+        -- Setup servers for outside Mason --
+        -- and jdtls with it's extra args  --
+        -------------------------------------
 
         -- Setup lua language server for Lua
         if vim.fn.executable("lua-language-server") then
@@ -77,6 +84,12 @@ return {
         -- Setup Rust-analyzer for Rust
         if vim.fn.executable("rust-analyzer") then
             lsp_config.rust_analyzer.setup({
+                capabilities = capabilities })
+        end
+
+        -- Setup Ruff for Python
+        if vim.fn.executable("ruff") then
+            lsp_config.ruff.setup({
                 capabilities = capabilities })
         end
     end,
