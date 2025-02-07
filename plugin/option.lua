@@ -1,3 +1,10 @@
+-- Filetype settings
+vim.filetype.add(
+    {
+        extension = { typ = "typst" }
+    }
+)
+
 local opt = vim.opt
 
 -- True colors

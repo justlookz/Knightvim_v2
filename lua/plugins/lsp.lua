@@ -11,7 +11,6 @@ return {
         },
     },
     config = function()
-
         -- Setup Mason
         require('mason').setup()
         require('mason-lspconfig').setup({
@@ -49,12 +48,17 @@ return {
 
         -- Setup jdtls for Java
         if vim.fn.executable("jdtls") then
-        lsp_config.jdtls.setup({
-            capabilities = capabilities,
-            root_dir = require('lspconfig.util')
-                .root_pattern('.git', 'pom.xml', 'build.gradle', '.classpath'),
-            settings = { java = { project = {
-                referencedLibraries = { "lib/**/*.jar" }}}}})
+            lsp_config.jdtls.setup({
+                capabilities = capabilities,
+                root_dir = require('lspconfig.util')
+                    .root_pattern('.git', 'pom.xml', 'build.gradle', '.classpath'),
+                settings = {
+                    java = {
+                        project = {
+                            referencedLibraries = { "lib/**/*.jar" } }
+                    }
+                }
+            })
         end
 
         -- Setup gopls for Golang
@@ -63,5 +67,17 @@ return {
                 capabilities = capabilities })
         end
 
+        -- Setup tinymist for Typst
+        if vim.fn.executable("tinymist") then
+            lsp_config.tinymist.setup({
+                capabilities = capabilities })
+        end
+
+
+        -- Setup Rust-analyzer for Rust
+        if vim.fn.executable("rust-analyzer") then
+            lsp_config.rust_analyzer.setup({
+                capabilities = capabilities })
+        end
     end,
 }
