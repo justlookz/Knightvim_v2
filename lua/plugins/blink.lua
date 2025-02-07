@@ -1,7 +1,7 @@
 return {
     'saghen/blink.cmp',
     version = '*',
-    dependencies = { 
+    dependencies = {
         "rafamadriz/friendly-snippets"
     },
     opts = {
@@ -26,7 +26,10 @@ return {
             ['<C-f>'] = { 'scroll_documentation_down', 'fallback' },
         },
         sources = {
-            default = { 'snippets', 'lsp', 'path', 'buffer' },
+            default = { 'snippets', 'lsp', 'path', 'buffer', "dadbod" },
+            providers = {
+                dadbod = { name = "Dadbod", module = "vim_dadbod_completion.blink" },
+            },
         },
     }
 }
