@@ -1,14 +1,15 @@
 return {
     'echasnovski/mini.nvim',
     version = '*',
+    lazy = false,
     config = function()
-        local map = vim.keymap.set
         require("mini.comment").setup()
         require("mini.ai").setup()
         require("mini.icons").setup()
         require("mini.surround").setup()
         require("mini.files").setup()
         require("mini.statusline").setup()
+        require("mini.diff").setup()
         local miniclue = require('mini.clue')
         miniclue.setup({
             triggers = {
