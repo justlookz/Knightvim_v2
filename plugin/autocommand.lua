@@ -9,7 +9,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
         map('n', 'K', vim.lsp.buf.hover,
             { buffer = args.buf, desc = "Documentation from lsp" })
 
-        map("n", "<leader>l", "", { desc = "Lsp actions" })
+        map("n", "<leader>l", "", { desc = "+Lsp actions" })
 
         map('n', 'gD', vim.lsp.buf.declaration, {
             buffer = args.buf,

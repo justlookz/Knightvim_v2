@@ -7,20 +7,7 @@ return {
         require("mini.ai").setup()
         require("mini.icons").setup()
         require("mini.surround").setup()
-        require("mini.extra").setup()
         require("mini.files").setup()
-        require("mini.pick").setup()
-        map("n", "<leader><space>", MiniExtra.pickers.explorer,
-            { desc = "Explorer" })
-        map("n", "<leader>s", "",
-            { desc = "+Search for ..." })
-        map("n", "<leader>sb", MiniPick.builtin.buffers, { desc = "Show Buffers" })
-        map("n", "<leader>sg", MiniPick.builtin.grep_live,
-            { desc = "Search Files with rg" })
-        map("n", "<leader>sh", MiniPick.builtin.help,
-            { desc = "Search Help pages" })
-        map("n", "<leader>e", MiniExtra.pickers.explorer,
-            { desc = "Explorer" })
         require("mini.statusline").setup()
         local miniclue = require('mini.clue')
         miniclue.setup({
@@ -67,4 +54,7 @@ return {
             },
         })
     end,
+    keys = {
+        { "<leader><space>", function() MiniFiles.open() end, desc = "Open file" },
+    }
 }
