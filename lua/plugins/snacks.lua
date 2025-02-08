@@ -27,5 +27,6 @@ return {
         { "<leader>sc", function() Snacks.picker.colorschemes() end, desc = "Search colorschemes" },
         { "<leader>sb", function() Snacks.picker.buffers() end, desc = "Search buffers" },
         { "<leader>sh", function() Snacks.picker.help() end, desc = "Search help" },
+        { "<leader>su", function() Snacks.picker.undo() end, desc = "Search undo history" },
     }
 }
