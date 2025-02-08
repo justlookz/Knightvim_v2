@@ -53,21 +53,6 @@ return {
                 capabilities = capabilities })
         end
 
-        -- Setup jdtls for Java
-        if vim.fn.executable("jdtls") then
-            lsp_config.jdtls.setup({
-                capabilities = capabilities,
-                root_dir = require('lspconfig.util')
-                    .root_pattern('.git', 'pom.xml', 'build.gradle', '.classpath'),
-                settings = {
-                    java = {
-                        project = {
-                            referencedLibraries = { "lib/**/*.jar" } }
-                    }
-                }
-            })
-        end
-
         -- Setup gopls for Golang
         if vim.fn.executable("gopls") then
             lsp_config.gopls.setup({
