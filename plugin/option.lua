@@ -1,11 +1,21 @@
+-- variables for ease of use
+local opt = vim.opt
+local g = vim.g
+
+-- Netrw settings
+
+-- Remove banner
+g.netrw_banner=0
+
+-- Change preview to a tree
+g.netrw_liststyle=3
+
 -- Filetype settings
 vim.filetype.add(
     {
         extension = { typ = "typst" }
     }
 )
-
-local opt = vim.opt
 
 -- True colors
 opt.termguicolors = true

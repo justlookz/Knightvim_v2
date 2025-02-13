@@ -55,3 +55,8 @@ map("n", "<ESC>", vim.cmd.nohlsearch,
 -- Indentation movement without losing selection
 map("v", ">", ">gv", { desc = "Left indentation" })
 map("v", "<", "<gv", { desc = "Right indentation" })
+
+-- Toggle Netrw to the right
+map("n", "<leader>e", "<CMD>20Lexplore!<CR>", {
+    desc = "File Explorer to the right",
+})
