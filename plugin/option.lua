@@ -5,10 +5,10 @@ local g = vim.g
 -- Netrw settings
 
 -- Remove banner
-g.netrw_banner=0
+g.netrw_banner = 0
 
 -- Change preview to a tree
-g.netrw_liststyle=3
+g.netrw_liststyle = 3
 
 -- Filetype settings
 vim.filetype.add(
@@ -18,78 +18,81 @@ vim.filetype.add(
 )
 
 -- True colors
-opt.termguicolors = true
+opt.termguicolors  = true
 
 -- Options for messages
-opt.shortmess = "IfilnxtToOF"
+opt.shortmess      = "IfilnxtToOF"
 
 -- Copy from clipboard
-opt.clipboard = "unnamedplus"
+opt.clipboard      = "unnamedplus"
 
 -- Mouse support
-opt.mouse = "a" -- all
+opt.mouse          = "a" -- all
 
 -- Size of spaces for tabs
-opt.tabstop = 4
+opt.tabstop        = 4
 -- How many spaces instead of tabs
-opt.shiftwidth = 4
-opt.swapfile = false
+opt.shiftwidth     = 4
+
+opt.swapfile       = false
 
 -- Updates after this time
-opt.updatetime = 250 --ms
+opt.updatetime     = 250 --ms
 
 -- Spaces instead of tabs
-opt.expandtab = true
+opt.expandtab      = true
 
 -- Numbers
-opt.number = true
+opt.number         = true
 opt.relativenumber = true
 
--- Split option 
-opt.splitright = true
-opt.splitbelow = true
+-- Split option
+opt.splitright     = true
+opt.splitbelow     = true
 
 -- For search to ignore cases
-opt.ignorecase = true
-opt.smartcase = true
+opt.ignorecase     = true
+opt.smartcase      = true
 
 -- Wrap on boundaries without braking the word if possible
-opt.linebreak = true
+opt.linebreak      = true
 
 -- Timeout options for events
-opt.timeout = true
-opt.timeoutlen = 300 -- ms
+opt.timeout        = true
+opt.timeoutlen     = 300 -- ms
 
 -- Encoding
-opt.encoding = "utf-8"
-opt.showmode = false
+opt.encoding       = "utf-8"
+opt.showmode       = false
 
 -- Confirmation for closing files
-opt.confirm = true
+opt.confirm        = true
 
 -- Auto indent
-opt.smartindent = true
+opt.smartindent    = true
 
 -- Hidden buffers
-opt.hidden = true
+opt.hidden         = true
 
 -- History size
-opt.history = 20
+opt.history        = 20
 
 -- Max syntax highlighting per column
-opt.synmaxcol = 80
+opt.synmaxcol      = 80
 
 -- History files for presidency
-opt.undofile = true
+opt.undofile       = true
 
 -- Fold options
 opt.foldmethod     = "expr"
 opt.foldexpr       = "nvim_treesitter#foldexpr()"
 opt.foldlevelstart = 99
 opt.spell          = true
+---@diagnostic disable-next-line: missing-fields
 opt.spelllang      = { "el", "en" }
 
 -- Show character on those element
+---@diagnostic disable-next-line: missing-fields
 opt.listchars      = {
     tab = "» ",
     nbsp = "␣",
@@ -98,5 +101,9 @@ opt.listchars      = {
 }
 opt.showbreak      = "|"
 
+---@diagnostic disable-next-line: missing-fields
+opt.colorcolumn    = { 64, 78 }
+
 -- For mkview
-opt.viewoptions = { "folds", "cursor" }
+---@diagnostic disable-next-line: missing-fields
+opt.viewoptions    = { "folds", "cursor" }
