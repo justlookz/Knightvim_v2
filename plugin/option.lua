@@ -21,7 +21,10 @@ vim.filetype.add(
 opt.termguicolors = true
 
 -- Options for messages
-vim.opt.shortmess = "IfilnxtToOF"
+opt.shortmess = "IfilnxtToOF"
+
+-- Copy from clipboard
+opt.clipboard = "unnamedplus"
 
 -- Mouse support
 opt.mouse = "a" -- all
