@@ -5,6 +5,7 @@ return {
     config = function()
         require("mini.comment").setup()
         require("mini.ai").setup()
+        require("mini.align").setup()
         require("mini.icons").setup()
         require("mini.surround").setup()
         require("mini.files").setup()
