@@ -1,9 +1,11 @@
 local map = vim.keymap.set
+local augroup = vim.api.nvim_create_augroup
+local aucmd = vim.api.nvim_create_autocmd
 
 local lsp_group = vim.api.nvim_create_augroup("lsp_group",
     { clear = true })
 
-vim.api.nvim_create_autocmd('LspAttach', {
+aucmd('LspAttach', {
     group = lsp_group,
     callback = function(args)
         map('n', 'K', vim.lsp.buf.hover,
@@ -93,11 +95,11 @@ vim.api.nvim_create_autocmd('LspAttach', {
         -- Highlighting word with lsp support under cursor
         if client and client.server_capabilities.documentHighlightProvider then
             local hightlight_word_group =
-                vim.api.nvim_create_augroup(
+                augroup(
                     "hightlight_word_group", { clear = true }
                 )
 
-            vim.api.nvim_create_autocmd(
+            aucmd(
                 { "CursorHold", "CursorHoldI" },
                 {
                     group = hightlight_word_group,
@@ -108,7 +110,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
                 }
             )
 
-            vim.api.nvim_create_autocmd(
+            aucmd(
                 { "CursorMoved", "CursorMovedI" },
                 {
                     group = hightlight_word_group,
@@ -120,10 +122,10 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end, -- callback end
 })
 
-local yank_group = vim.api.nvim_create_augroup("kvim-yank_group",
+local yank_group = augroup("kvim-yank_group",
     { clear = true })
 
-vim.api.nvim_create_autocmd("TextYankPost", {
+aucmd("TextYankPost", {
     group = yank_group,
     callback = function()
         vim.highlight.on_yank({ higroup = "Visual", timeout = 550 })
@@ -131,16 +133,31 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 })
 
 
-vim.api.nvim_create_autocmd("BufWinEnter", {
-    group = vim.api.nvim_create_augroup("kvim-ts-Buf-Enter", { clear = true }),
+aucmd("BufWinEnter", {
+    group = augroup("kvim-ts-Buf-Enter", { clear = true }),
     callback = function()
         pcall(vim.cmd.loadview)
     end
 })
 
-vim.api.nvim_create_autocmd("BufWinLeave", {
-    group = vim.api.nvim_create_augroup("kvim-ts-Buf-Leave", { clear = true }),
+aucmd("BufWinLeave", {
+    group = augroup("kvim-ts-Buf-Leave", { clear = true }),
     callback = function()
         pcall(vim.cmd.mkview)
+    end
+})
+
+local init_vim = augroup("init-vim", { clear = true })
+
+aucmd("VimEnter", {
+    group = init_vim,
+    pattern = "*",
+    callback = function()
+        local file_name = vim.fn.expand("%")
+        if file_name ~= "" then
+            vim.cmd.edit(file_name)
+        else
+            vim.cmd.Explore()
+        end
     end
 })
