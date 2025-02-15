@@ -16,24 +16,42 @@ return {
         },
         keymap = {
             cmdline = {
-                ['<C-e>'] = { 'hide' },
-                ['<cr>'] = { 'select_and_accept', 'fallback' },
+                ['<C-e>'] = { 'cancel', "hide" },
+                ['<cr>'] = { 'accept', 'fallback' },
                 ['<C-y>'] = { 'select_and_accept', 'show' },
-                ['<tab>'] = { 'select_next', 'show', "fallback" },
-                ['<S-tab>'] = { 'select_prev', 'show', "fallback" },
-                ['<C-n>'] = { 'select_next', 'show', "fallback" },
-                ['<C-p>'] = { 'select_prev', 'show', "fallback" },
+                ['<tab>'] = {
+                    function(cmp) cmp.select_next({ auto_insert = true }) end,
+                    'show',
+                },
+                ['<S-tab>'] = {
+                    function(cmp) cmp.select_prev({ auto_insert = true }) end,
+                    'show',
+                },
+                ['<C-n>'] = {
+                    'show',
+                    function(cmp) cmp.select_next({ auto_insert = true }) end,
+                },
+                ['<C-p>'] = {
+                    'show',
+                    function(cmp) cmp.select_prev({ auto_insert = true }) end,
+                },
             },
 
             ['<C-space>'] = { 'show', 'show_documentation', 'hide_documentation' },
-            ['<C-e>'] = { 'hide' },
+            ['<C-e>'] = { 'cancel', "hide" },
             ['<C-y>'] = { 'select_and_accept', 'show' },
-            ['<C-n>'] = { 'select_next', 'show', "fallback" },
-            ['<C-p>'] = { 'select_prev', 'show', "fallback" },
+            ['<C-n>'] = {
+                'show',
+                function(cmp) cmp.select_next({ auto_insert = true }) end,
+            },
+            ['<C-p>'] = {
+                'show',
+                function(cmp) cmp.select_prev({ auto_insert = true }) end,
+            },
             ['<C-f>'] = { 'scroll_documentation_down', 'fallback' },
             ['<C-b>'] = { 'scroll_documentation_up', 'fallback' },
-            ['<C-j>'] = { 'snippet_forward' },
-            ['<C-k>'] = { 'snippet_backward' },
+            ['<C-j>'] = { 'snippet_forward', 'fallback' },
+            ['<C-k>'] = { 'snippet_backward', 'fallback' },
         },
         sources = {
             default = { 'snippets', 'lsp', 'path', 'buffer', "dadbod" },

@@ -8,7 +8,8 @@ return {
         require("mini.align").setup()
         require("mini.icons").setup()
         require("mini.surround").setup()
-        require("mini.files").setup()
+        require("mini.pick").setup()
+        require("mini.extra").setup()
         require("mini.statusline").setup()
         require("mini.operators").setup()
         require("mini.git").setup()
@@ -59,6 +60,6 @@ return {
         })
     end,
     keys = {
-        { "<leader><space>", function() MiniFiles.open() end, desc = "Open file" },
+        { "<leader><space>", function() MiniExtra.pickers.explorer() end, desc = "Open file" },
     }
 }
