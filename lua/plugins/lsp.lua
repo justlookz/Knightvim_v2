@@ -56,11 +56,11 @@ return {
         end
 
         -- Setup clangd language server for C/C++
-        if vim.fn.executable("clangd")
-            and not_from_mason("clangd") then
+        -- if vim.fn.executable("clangd")
+        --     and not_from_mason("clangd") then
             lsp_config.clangd.setup({
                 capabilities = capabilities })
-        end
+        -- end
 
         -- Setup gopls for Golang
         if vim.fn.executable("gopls")

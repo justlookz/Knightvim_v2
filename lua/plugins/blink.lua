@@ -9,7 +9,7 @@ return {
             trigger = { show_on_keyword = false },
             list = {
                 selection = {
-                    preselect = true,
+                    preselect = false,
                     auto_insert = false,
                 }
             }
@@ -20,12 +20,12 @@ return {
                 ['<cr>'] = { 'accept', 'fallback' },
                 ['<C-y>'] = { 'select_and_accept', 'show' },
                 ['<tab>'] = {
-                    function(cmp) cmp.select_next({ auto_insert = true }) end,
                     'show',
+                    function(cmp) cmp.select_next({ auto_insert = true }) end,
                 },
                 ['<S-tab>'] = {
-                    function(cmp) cmp.select_prev({ auto_insert = true }) end,
                     'show',
+                    function(cmp) cmp.select_prev({ auto_insert = true }) end,
                 },
                 ['<C-n>'] = {
                     'show',
