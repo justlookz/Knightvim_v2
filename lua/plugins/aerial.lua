@@ -5,5 +5,9 @@ return {
     dependencies = {
         "nvim-treesitter/nvim-treesitter",
     },
-    keys = { { "<leader>lu", ":AerialToggle<CR>", desc = "Toggle symbols" }, },
+    keys = { {
+        "<leader>lu",
+        function() require("aerial").toggle() end,
+        desc = "Toggle symbols",
+    }, },
 }

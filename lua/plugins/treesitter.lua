@@ -1,9 +1,7 @@
 -- treesitter - for highlighting
 return {
     { "windwp/nvim-ts-autotag" },
-    {
-        "HiPhish/rainbow-delimiters.nvim",
-    },
+    { "HiPhish/rainbow-delimiters.nvim" },
 
     {
         "nvim-treesitter/nvim-treesitter-textobjects",
@@ -12,15 +10,11 @@ return {
 
     {
         "Wansmer/treesj",
-        opts = {
-            use_default_keymaps = false,
-        },
+        opts = { use_default_keymaps = false },
         keys = {
             {
                 "<leader>f",
-                function()
-                    require("treesj").toggle()
-                end,
+                function() require("treesj").toggle() end,
                 desc = "Toggle split - join",
             },
         }
