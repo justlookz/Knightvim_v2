@@ -14,8 +14,8 @@ return {
                 }
             }
         },
-        keymap = {
-            cmdline = {
+        cmdline = {
+            keymap = {
                 ['<C-e>'] = { 'cancel', "hide" },
                 ['<cr>'] = { 'accept', 'fallback' },
                 ['<C-y>'] = { 'select_and_accept', 'show' },
@@ -35,7 +35,9 @@ return {
                     'show',
                     function(cmp) cmp.select_prev({ auto_insert = true }) end,
                 },
-            },
+            }
+        },
+        keymap = {
 
             ['<C-space>'] = { 'show', 'show_documentation', 'hide_documentation' },
             ['<C-e>'] = { 'cancel', "hide" },
