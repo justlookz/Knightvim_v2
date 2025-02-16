@@ -70,6 +70,11 @@ return {
         -- Setup tinymist for Typst
         if vim.fn.executable("tinymist") then
             lsp_config.tinymist.setup({
+                settings = {
+                    formatterMode = "typstyle",
+                    exportPdf = "onType",
+                    semanticTokens = "disable"
+                },
                 capabilities = capabilities })
         end
 
