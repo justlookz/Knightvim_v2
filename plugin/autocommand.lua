@@ -148,14 +148,3 @@ aucmd("BufWinLeave", {
 })
 
 local init_vim = augroup("kvim-init-vim", { clear = true })
-
-aucmd("VimEnter", {
-    group = init_vim,
-    pattern = "*",
-    callback = function()
-        local file_name = vim.fn.expand("%")
-        if file_name == "" then
-            vim.cmd.Explore()
-        end
-    end
-})
