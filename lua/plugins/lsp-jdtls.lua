@@ -6,8 +6,8 @@ return {
     },
     ft = "java",
     config = function()
-        local home = os.getenv "HOME"
-        local workspace_path = home .. "/.local/share/lunarvim/jdtls-workspace/"
+        local data = vim.fn.stdpath("data")
+        local workspace_path = data .. "/jdtls-workspace/"
         local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
         local workspace_dir = workspace_path .. project_name
         local os_config = "linux"
@@ -29,11 +29,11 @@ return {
                 "java.base/java.util=ALL-UNNAMED",
                 "--add-opens",
                 "java.base/java.lang=ALL-UNNAMED",
-                "-javaagent:" .. home .. "/.local/share/nvim/mason/packages/jdtls/lombok.jar",
+                "-javaagent:" .. data .. "/mason/packages/jdtls/lombok.jar",
                 "-jar",
-                vim.fn.glob(home .. "/.local/share/nvim/mason/packages/jdtls/plugins/org.eclipse.equinox.launcher_*.jar"),
+                vim.fn.glob(data .. "/mason/packages/jdtls/plugins/org.eclipse.equinox.launcher_*.jar"),
                 "-configuration",
-                home .. "/.local/share/nvim/mason/packages/jdtls/config_" .. os_config,
+                data .. "/mason/packages/jdtls/config_" .. os_config,
                 "-data",
                 workspace_dir,
             },
