@@ -85,7 +85,7 @@ opt.undofile       = true
 
 -- Fold options
 opt.foldmethod     = "expr"
-opt.foldexpr       = "nvim_treesitter#foldexpr()"
+vim.o.foldexpr     = 'v:lua.vim.treesitter.foldexpr()'
 opt.foldlevelstart = 99
 opt.spell          = true
 ---@diagnostic disable-next-line: missing-fields

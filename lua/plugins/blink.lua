@@ -41,7 +41,7 @@ return {
 
             ['<C-space>'] = { 'show_documentation', 'hide_documentation' },
             ['<C-e>'] = { 'cancel', "hide" },
-            ['<C-y>'] = { 'select_and_accept' },
+            ['<C-y>'] = { 'select_and_accept', 'show' },
             ['<C-n>'] = {
                 'show',
                 function(cmp) cmp.select_next({ auto_insert = true }) end,

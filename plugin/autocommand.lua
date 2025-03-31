@@ -68,6 +68,11 @@ aucmd('LspAttach', {
 
         local client = vim.lsp.get_clients()[1]
 
+        if client:supports_method('textDocument/foldingRange') then
+            local win = vim.api.nvim_get_current_win()
+            vim.wo[win][0].foldexpr = 'v:lua.vim.lsp.foldexpr()'
+        end
+
         if client.server_capabilities.documentFormattingProvider then
             map('n', '<leader>lf', function()
                     vim.lsp.buf.format { async = true }
