@@ -10,6 +10,20 @@ return {
         } }
     },
 
+    -- Symbols for lsp
+    {
+        'stevearc/aerial.nvim',
+        opts = {},
+        dependencies = {
+            "nvim-treesitter/nvim-treesitter",
+        },
+        keys = { {
+            "<leader>lu",
+            function() require("aerial").toggle() end,
+            desc = "Toggle symbols",
+        }, },
+    },
+
     {
         'nvim-treesitter/nvim-treesitter',
         build = ":silent TSUpdateSync",

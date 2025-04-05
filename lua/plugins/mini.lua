@@ -7,7 +7,6 @@ return {
         require("mini.ai").setup()
         require("mini.align").setup()
         require("mini.icons").setup()
-        require("mini.surround").setup()
         require("mini.pick").setup()
         require("mini.extra").setup()
         require("mini.statusline").setup()

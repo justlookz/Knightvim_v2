@@ -15,6 +15,7 @@ return {
                 }
             }
         },
+        
         cmdline = {
             keymap = {
                 ['<C-e>'] = { 'cancel', "hide" },
