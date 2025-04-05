@@ -6,6 +6,7 @@ return {
     },
     opts = {
         completion = {
+            menu = {auto_show = false},
             trigger = { show_on_keyword = false },
             list = {
                 selection = {
