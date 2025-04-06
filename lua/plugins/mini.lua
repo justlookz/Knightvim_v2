@@ -10,7 +10,6 @@ return {
         require("mini.pick").setup()
         require("mini.extra").setup()
         require("mini.statusline").setup()
-        require("mini.operators").setup()
         require("mini.git").setup()
         require("mini.diff").setup()
         local miniclue = require('mini.clue')

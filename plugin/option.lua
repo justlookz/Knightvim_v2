@@ -1,6 +1,7 @@
 -- variables for ease of use
 local opt = vim.opt
 local g = vim.g
+local o = vim.o
 
 -- Netrw settings
 
@@ -85,7 +86,7 @@ opt.undofile       = true
 
 -- Fold options
 opt.foldmethod     = "expr"
-vim.o.foldexpr     = 'v:lua.vim.treesitter.foldexpr()'
+o.foldexpr     = 'v:lua.vim.treesitter.foldexpr()'
 opt.foldlevelstart = 99
 opt.spell          = true
 ---@diagnostic disable-next-line: missing-fields

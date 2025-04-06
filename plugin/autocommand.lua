@@ -23,35 +23,35 @@ aucmd('LspAttach', {
             desc   = 'Definition from lsp'
         })
 
-        map('n', 'gm', vim.lsp.buf.implementation, {
+        map('n', 'gri', vim.lsp.buf.implementation, {
             buffer  = args.buf,
             desc    = 'Implementation from lsp',
             noremap = true,
         })
 
-        map('n', 'gh', vim.lsp.buf.signature_help, {
+        map('i', '<C-s>', vim.lsp.buf.signature_help, {
             buffer  = args.buf,
             desc    = 'Signature help from lsp',
             noremap = true,
         })
 
 
-        map('n', '<leader>la', vim.lsp.buf.code_action, {
+        map('n', 'gra', vim.lsp.buf.code_action, {
             buffer = args.buf,
             desc   = 'Code actions from lsp'
         })
 
-        map('n', 'gtd', vim.lsp.buf.type_definition, {
+        map('n', 'grt', vim.lsp.buf.type_definition, {
             buffer = args.buf,
             desc   = 'Definition from lsp'
         })
 
-        map('n', '<leader>lr', vim.lsp.buf.rename, {
+        map('n', 'grn', vim.lsp.buf.rename, {
             buffer = args.buf,
             desc   = 'Rename a variable from lsp'
         })
 
-        map('n', '<leader>lh', vim.diagnostic.open_float, {
+        map('n', 'grh', vim.diagnostic.open_float, {
             buffer = args.buf,
             desc = 'Open float diagnostic window'
         })
