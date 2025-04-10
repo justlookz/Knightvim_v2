@@ -79,10 +79,17 @@ aucmd('LspAttach', {
                 end,
                 {
                     desc = 'format file using lsp',
-                    buffer = 0,
+                    buffer = args.buf,
                 })
         end
 
+        map('n', '<leader>ld', function()
+            vim.diagnostic.enable(not vim.diagnostic.is_enabled())
+        end,
+            {
+                desc = 'Toggle Diagnostics',
+                buffer = args.buf,
+            })
         -- End of Keymaps --------------------
 
         if client then
@@ -92,7 +99,7 @@ aucmd('LspAttach', {
                         vim.lsp.inlay_hint.is_enabled())
                 end, {
                     desc = "Toggle inlay hint",
-                    buffer = 0,
+                    buffer = args.buf,
                 })
             end
         end

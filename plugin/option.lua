@@ -86,7 +86,7 @@ opt.undofile       = true
 
 -- Fold options
 opt.foldmethod     = "expr"
-o.foldexpr     = 'v:lua.vim.treesitter.foldexpr()'
+o.foldexpr         = 'v:lua.vim.treesitter.foldexpr()'
 opt.foldlevelstart = 99
 opt.spell          = true
 ---@diagnostic disable-next-line: missing-fields
@@ -94,12 +94,6 @@ opt.spelllang      = { "el", "en" }
 
 -- Show character on those element
 ---@diagnostic disable-next-line: missing-fields
-opt.listchars      = {
-    tab = "» ",
-    nbsp = "␣",
-    eol = "↲",
-    leadmultispace = "| ",
-}
 opt.showbreak      = "|"
 
 ---@diagnostic disable-next-line: missing-fields
@@ -108,3 +102,6 @@ opt.colorcolumn    = { 64, 78 }
 -- For mkview
 ---@diagnostic disable-next-line: missing-fields
 opt.viewoptions    = { "folds", "cursor" }
+
+
+vim.diagnostic.config({ virtual_text = true })
