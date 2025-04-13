@@ -103,5 +103,4 @@ opt.colorcolumn    = { 64, 78 }
 ---@diagnostic disable-next-line: missing-fields
 opt.viewoptions    = { "folds", "cursor" }
 
-
-vim.diagnostic.config({ virtual_text = true })
+vim.diagnostic.config({ virtual_text = true, virtual_lines = false })
