@@ -45,7 +45,7 @@ map("n", "<leader>bl", vim.cmd.blast,
 -- Esc instead of that to enter normal mode on terminal
 map("t", "<ESC>", "<C-\\><C-n>")
 -- Open terminal
-map("n", "<leader>t", "<CMD>7split | terminal<CR>",
+map("n", "<leader>t", "<CMD>7split | terminal<CR>i",
     { desc = "Terminal" })
 
 -- Esc to hide highlighting from search
