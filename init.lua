@@ -22,7 +22,7 @@ require("lazy").setup({
 
     {
         install = {
-            colorscheme = { "nord" },
+            colorscheme = { "gruvbox" },
         },
         change_detection = {
             enabled = true,
@@ -30,4 +30,4 @@ require("lazy").setup({
         },
     })
 
-vim.cmd.colorscheme("nord")
+vim.cmd.colorscheme("gruvbox")
