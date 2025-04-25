@@ -35,6 +35,9 @@ opt.tabstop        = 4
 -- How many spaces instead of tabs
 opt.shiftwidth     = 4
 
+-- Highlight the line of cursor
+opt.cursorline     = true
+
 opt.swapfile       = false
 
 -- Updates after this time
