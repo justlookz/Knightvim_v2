@@ -5,10 +5,6 @@ return {
         { 'saghen/blink.cmp' },
         { 'williamboman/mason.nvim' },
         { 'williamboman/mason-lspconfig.nvim' },
-        {
-            "folke/neodev.nvim",
-            opts = {},
-        },
     },
     config = function()
         -- Setup Mason
@@ -21,74 +17,99 @@ return {
         -- Setup languages installed from Mason with
         -- their default settings
 
-       local handlers = {
-           -- The first entry (without a key) will be the default handler
-           -- and will be called for each installed server that doesn't have
-           -- a dedicated handler.
-           function (server_name) -- default handler (optional)
-               require("lspconfig")[server_name].setup {
-                    capabilities = capabilities
-               }
-           end,
-           -- Next, you can provide targeted overrides for specific servers.
-           -- Removed default handler for global installed
-           ["jdtls"] = function() end,
-           ["clangd"] = function() end,
-           ["lua_ls"] = function() end,
-           ["tinymist"] = function() end,
-           ["gopls"] = function() end,
-           ["rust_analyzer"] = function() end,
-       }
+        local handlers = {
+            -- The first entry (without a key) will be the default handler
+            -- and will be called for each installed server that doesn't have
+            -- a dedicated handler.
+            function(server_name) -- default handler (optional)
+                -- require("lspconfig")[server_name].setup {
+                --      capabilities = capabilities
+                -- }
+                vim.lsp.enable(server_name)
+            end,
+            -- Next, you can provide targeted overrides for specific servers.
+            -- Removed default handler for global installed
+            ["jdtls"] = function() end,
+            ["clangd"] = function() end,
+            ["lua_ls"] = function() end,
+            ["tinymist"] = function() end,
+            ["gopls"] = function() end,
+            ["rust_analyzer"] = function() end,
+        }
 
-       -- setup mason lspconfig
+        -- setup mason lspconfig
         require('mason-lspconfig').setup({
             ensure_installed = {},
             handlers = handlers,
-            automatic_installation = false })
+            automatic_installation = false
+        })
 
         -- Setup lsp-config
-        local lsp_config = require("lspconfig")
 
         -- Setup clangd language server for C/C++
         if vim.fn.executable("clangd") then
-            lsp_config.clangd.setup({
-                capabilities = capabilities })
+            vim.lsp.enable('clangd')
         end
 
         -- Setup clangd language server for C/C++
         if vim.fn.executable("lua-language-server") then
-            lsp_config.lua_ls.setup({
-                capabilities = capabilities })
+            vim.lsp.config('lua_ls', {
+                settings = {
+                    Lua = {
+                        runtime = {
+                            -- Tell the language server which version of Lua you're using
+                            version = 'LuaJIT',
+                            -- Setup your lua path
+                            path = vim.split(package.path, ';'),
+                        },
+                        diagnostics = {
+                            -- Get the language server to recognize the `vim` global
+                            globals = { 'vim' },
+                        },
+                        workspace = {
+                            -- Make the server aware of Neovim runtime files
+                            library = {
+                                vim.env.VIMRUNTIME,
+                                "${3rd}/luv/library",
+                                "${3rd}/busted/library",
+                            },
+                            maxPreload = 1000,
+                            preloadFileSize = 50000,
+                        },
+                        telemetry = {
+                            enable = false,
+                        },
+                    },
+                },
+            })
+            vim.lsp.enable('lua_ls')
         end
 
         -- Setup gopls for Golang
         if vim.fn.executable("gopls") then
-            lsp_config.gopls.setup({
-                capabilities = capabilities })
+            vim.lsp.enable('gopls')
         end
 
         -- Setup tinymist for Typst
         if vim.fn.executable("tinymist") then
-            lsp_config.tinymist.setup({
+            vim.lsp.config('tinymist', {
                 settings = {
                     formatterMode = "typstyle",
-                    exportPdf = "onType",
                     semanticTokens = "disable"
-                },
-                capabilities = capabilities })
+                }
+            })
+            vim.lsp.enable('tinymist')
         end
 
 
         -- Setup Rust-analyzer for Rust
         if vim.fn.executable("rust-analyzer") then
-            lsp_config.rust_analyzer.setup({
-                capabilities = capabilities })
+            vim.lsp.enable("rust_analyzer")
         end
 
         -- Setup Ruff for Python
         if vim.fn.executable("ruff") then
-            lsp_config.ruff.setup({
-                capabilities = capabilities })
+            vim.lsp.enable("ruff")
         end
     end,
 }
