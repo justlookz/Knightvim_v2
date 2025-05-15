@@ -2,17 +2,12 @@ return {
     'neovim/nvim-lspconfig', -- Required
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
-        { 'saghen/blink.cmp' },
         { 'williamboman/mason.nvim' },
         { 'williamboman/mason-lspconfig.nvim' },
     },
     config = function()
         -- Setup Mason
         require('mason').setup()
-
-        -- Take capabilities from blink
-        local capabilities = require('blink.cmp')
-            .get_lsp_capabilities()
 
         -- Setup languages installed from Mason with
         -- their default settings
@@ -48,6 +43,9 @@ return {
 
         -- Setup clangd language server for C/C++
         if vim.fn.executable("clangd") then
+            vim.lsp.config("clangd", {
+                cmd = { "clangd", "--clang-tidy" },
+            })
             vim.lsp.enable('clangd')
         end
 

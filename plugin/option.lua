@@ -107,3 +107,5 @@ opt.colorcolumn    = { 64, 78 }
 opt.viewoptions    = { "folds", "cursor" }
 
 vim.diagnostic.config({ virtual_text = true, virtual_lines = false })
+
+vim.opt.laststatus = 3
