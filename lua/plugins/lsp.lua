@@ -40,6 +40,9 @@ return {
         })
 
         -- Setup lsp-config
+        vim.lsp.config('*', {
+          root_markers = { '.git', "Makefile" },
+        })
 
         -- Setup clangd language server for C/C++
         if vim.fn.executable("clangd") then

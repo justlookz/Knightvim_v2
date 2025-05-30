@@ -6,8 +6,8 @@ return {
     },
     opts = {
         completion = {
-            menu = {auto_show = false},
-            trigger = { show_on_keyword = false },
+            menu = {auto_show = true},
+            trigger = { show_on_keyword = true },
             list = {
                 selection = {
                     preselect = false,
