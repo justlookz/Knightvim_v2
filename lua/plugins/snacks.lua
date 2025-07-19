@@ -9,30 +9,7 @@ return {
     ---@type snacks.Config
     opts = {
         bigfile = { enabled = true },
-        dashboard = {
-            enabled = true,
-            preset = {
-                header = [[
-
-
-██   ██ ██    ██ ██ ███    ███
-██  ██  ██    ██ ██ ████  ████
-█████   ██    ██ ██ ██ ████ ██
-██  ██   ██  ██  ██ ██  ██  ██
-██   ██   ████   ██ ██      ██
-
-
-                ]],
-                keys = {
-
-                    { icon = " ", key = "n", desc = "New File", action = ":ene | startinsert" },
-                    { icon = " ", key = "f", desc = "Find File", action = ":lua Snacks.dashboard.pick('files')" },
-                    { icon = " ", key = "g", desc = "Find Text", action = ":lua Snacks.dashboard.pick('live_grep')" },
-                    { icon = " ", key = "r", desc = "Recent Files", action = ":lua Snacks.dashboard.pick('oldfiles')" },
-                    { icon = " ", key = "q", desc = "Quit", action = ":qa" },
-                }
-            }
-        },
+        dashboard = { enabled = false },
         explorer = { enabled = false },
         indent = { enabled = true },
         input = { enabled = false },
