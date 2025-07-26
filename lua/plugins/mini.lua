@@ -14,7 +14,22 @@ return {
         require("mini.extra").setup()
         require("mini.statusline").setup()
         require("mini.git").setup()
-        require("mini.diff").setup()
+        require("mini.diff").setup({ view = { style = 'number' } })
+        require("mini.pairs").setup({
+            mappings = {
+                ['('] = { action = 'open', pair = '()', neigh_pattern = '[^\\].' },
+                ['['] = { action = 'open', pair = '[]', neigh_pattern = '[^\\].' },
+                ['{'] = { action = 'open', pair = '{}', neigh_pattern = '[^\\].' },
+
+                [')'] = { action = 'close', pair = '()', neigh_pattern = '[^\\].' },
+                [']'] = { action = 'close', pair = '[]', neigh_pattern = '[^\\].' },
+                ['}'] = { action = 'close', pair = '{}', neigh_pattern = '[^\\].' },
+
+                ['"'] = { action = 'closeopen', pair = '""', neigh_pattern = '[^\\].', register = { cr = false } },
+                ["'"] = { action = 'closeopen', pair = "''", neigh_pattern = '[^%a\\].', register = { cr = false } },
+                ["`"] = false,
+            },
+        })
         local miniclue = require('mini.clue')
         miniclue.setup({
 
@@ -63,8 +78,7 @@ return {
         require('mini.completion').setup({
             delay = {
                 completion = 10 ^ 7,
-                info = 100,
-                signature = 50,
+                info = 100, signature = 50,
             },
             auto_setup = true,
             snippet_insert = 'mini.snippets'
@@ -74,8 +88,7 @@ return {
         require('mini.snippets').setup({
             mappings = {
                 expand = '<C-l>',
-                jump_next = '<C-j>',
-                jump_prev = '<C-k>',
+                jump_next = '<C-j>', jump_prev = '<C-k>',
             },
             snippets = {
                 gen_loader.from_file(
