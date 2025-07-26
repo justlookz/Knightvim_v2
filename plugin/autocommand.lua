@@ -13,57 +13,14 @@ aucmd('LspAttach', {
 
         map("n", "<leader>l", "", { desc = "+Lsp actions" })
 
-        map('n', 'gD', vim.lsp.buf.declaration, {
+        map('n', 'grD', vim.lsp.buf.declaration, {
             buffer = args.buf,
-            desc   = 'Declaration from lsp'
-        })
-
-        map('n', 'gd', vim.lsp.buf.definition, {
-            buffer = args.buf,
-            desc   = 'Definition from lsp'
-        })
-
-        map('n', 'gri', vim.lsp.buf.implementation, {
-            buffer  = args.buf,
-            desc    = 'Implementation from lsp',
-            noremap = true,
-        })
-
-        map('i', '<C-s>', vim.lsp.buf.signature_help, {
-            buffer  = args.buf,
-            desc    = 'Signature help from lsp',
-            noremap = true,
-        })
-
-
-        map('n', 'gra', vim.lsp.buf.code_action, {
-            buffer = args.buf,
-            desc   = 'Code actions from lsp'
-        })
-
-        map('n', 'grt', vim.lsp.buf.type_definition, {
-            buffer = args.buf,
-            desc   = 'Definition from lsp'
-        })
-
-        map('n', 'grn', vim.lsp.buf.rename, {
-            buffer = args.buf,
-            desc   = 'Rename a variable from lsp'
+            desc   = 'vim.lsp.buf.declaration()'
         })
 
         map('n', 'grh', vim.diagnostic.open_float, {
             buffer = args.buf,
-            desc = 'Open float diagnostic window'
-        })
-
-        map('n', ']d', vim.diagnostic.goto_next, {
-            buffer = args.buf,
-            desc   = "Next diagnostic"
-        })
-
-        map('n', '[d', vim.diagnostic.goto_prev, {
-            buffer = args.buf,
-            desc   = "Previous diagnostic",
+            desc = 'vim.diagnostic.open_float()'
         })
 
         local client = vim.lsp.get_clients()[1]
@@ -84,8 +41,10 @@ aucmd('LspAttach', {
         end
 
         map('n', '<leader>ld', function()
-            vim.diagnostic.enable(not vim.diagnostic.is_enabled())
-        end,
+                vim.diagnostic.enable(
+                    not vim.diagnostic.is_enabled()
+                )
+            end,
             {
                 desc = 'Toggle Diagnostics',
                 buffer = args.buf,
@@ -96,7 +55,7 @@ aucmd('LspAttach', {
             if client.server_capabilities.inlayHintProvider then
                 map('n', "<leader>li", function()
                     vim.lsp.inlay_hint.enable(
-                        vim.lsp.inlay_hint.is_enabled())
+                        not vim.lsp.inlay_hint.is_enabled())
                 end, {
                     desc = "Toggle inlay hint",
                     buffer = args.buf,
