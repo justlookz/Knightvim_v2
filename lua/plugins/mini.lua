@@ -62,20 +62,34 @@ return {
         })
         require('mini.completion').setup({
             delay = {
-                completion = 100,
+                completion = 10 ^ 7,
                 info = 100,
                 signature = 50,
             },
             auto_setup = true,
             snippet_insert = 'mini.snippets'
         })
+
         local gen_loader = require('mini.snippets').gen_loader
         require('mini.snippets').setup({
-            mappings = { expand = '', jump_next = '<C-j>', jump_prev = '<C-k>' },
+            mappings = {
+                expand = '<C-l>',
+                jump_next = '<C-j>',
+                jump_prev = '<C-k>',
+            },
             snippets = {
-                gen_loader.from_file(vim.fn.stdpath('config') .. '/snippets/global.json'),
-                gen_loader.from_file(vim.fn.stdpath('data') .. '/site/pack/deps/opt/friendly-snippets/package.json'),
-                { prefix = 'cdate',            body = '$CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE' },
+                gen_loader.from_file(
+                    vim.fn.stdpath('config')
+                    .. '/snippets/global.json'
+                ),
+                gen_loader.from_file(
+                    vim.fn.stdpath('data')
+                    .. '/site/pack/deps/opt/friendly-snippets/package.json'
+                ),
+                {
+                    prefix = 'cdate',
+                    body = '$CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE',
+                },
                 gen_loader.from_lang(),
                 gen_loader.from_file('.vscode/project.code-snippets'),
                 function(context)
