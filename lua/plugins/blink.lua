@@ -6,16 +6,15 @@ return {
     },
     opts = {
         completion = {
-            menu = {auto_show = true},
+            menu = {auto_show = false},
             trigger = { show_on_keyword = true },
             list = {
                 selection = {
-                    preselect = false,
-                    auto_insert = false,
+                    preselect = true,
+                    auto_insert = true,
                 }
             }
         },
-
         cmdline = {
             keymap = {
                 ['<C-e>'] = { 'cancel', "hide" },
@@ -40,7 +39,6 @@ return {
             }
         },
         keymap = {
-
             ['<C-space>'] = { 'show_documentation', 'hide_documentation' },
             ['<C-e>'] = { 'cancel', "hide" },
             ['<C-y>'] = { 'select_and_accept', 'show' },
