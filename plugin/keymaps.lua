@@ -44,9 +44,6 @@ map("n", "<leader>bl", vim.cmd.blast,
 -- Terminal keymaps
 -- Esc instead of that to enter normal mode on terminal
 map("t", "<ESC>", "<C-\\><C-n>")
--- Open terminal
-map("n", "<leader>t", "<CMD>7split | terminal<CR>i",
-    { desc = "Terminal" })
 
 -- Esc to hide highlighting from search
 map("n", "<ESC>", vim.cmd.nohlsearch,
@@ -55,8 +52,3 @@ map("n", "<ESC>", vim.cmd.nohlsearch,
 -- Indentation movement without losing selection
 map("v", ">", ">gv", { desc = "Left indentation" })
 map("v", "<", "<gv", { desc = "Right indentation" })
-
--- Toggle Netrw to the right
-map("n", "<leader>e", "<CMD>20Lexplore!<CR>", {
-    desc = "File Explorer to the right",
-})

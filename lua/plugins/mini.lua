@@ -5,12 +5,8 @@ return {
     lazy = false,
     config = function()
         require("mini.comment").setup()
-        require("mini.align").setup()
         require("mini.icons").setup()
-        require("mini.pick").setup()
-        require("mini.extra").setup()
         require("mini.statusline").setup()
-        require("mini.git").setup()
         require("mini.diff").setup()
         local miniclue = require('mini.clue')
         miniclue.setup({
@@ -57,7 +53,4 @@ return {
             },
         })
     end,
-    keys = {
-        { "<leader><space>", function() MiniExtra.pickers.explorer() end, desc = "Open file" },
-    }
 }

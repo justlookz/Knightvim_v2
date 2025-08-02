@@ -1,4 +1,3 @@
----@diagnostic disable: undefined-global, undefined-doc-name
 return {
     "folke/snacks.nvim",
     priority = 1000,
@@ -6,6 +5,7 @@ return {
         vim.g.snacks_animate = false
     end,
     lazy = false,
+---@diagnostic disable-next-line: undefined-doc-name
     ---@type snacks.Config
     opts = {
         bigfile = { enabled = true },
@@ -43,11 +43,30 @@ return {
             desc = "Search implementations",
         },
         {
+            "<leader>e",
+            function()
+                Snacks.picker.explorer(
+                    {
+                        layout = { layout = { position = "right" } },
+                        hidden = true, ignored = true,
+                        auto_close = true,
+                    })
+            end,
+            desc = "Explorer",
+        },
+        {
             "<leader>sw",
             function()
                 Snacks.picker.lsp_workspace_symbols()
             end,
             desc = "Search Workspace symbols",
+        },
+        {
+            "<leader><space>",
+            function()
+                Snacks.picker.smart()
+            end,
+            desc = "Search Files dybamic",
         },
         {
             "<leader>ss",
@@ -90,6 +109,20 @@ return {
                 Snacks.picker.recent()
             end,
             desc = "Search undo history",
+        },
+        {
+            "<leader>sr",
+            function()
+                Snacks.picker.grep()
+            end,
+            desc = "Grep text",
+        },
+        {
+            "<leader>t",
+            function()
+                Snacks.terminal.toggle()
+            end,
+            desc = "Terminal",
         },
     }
 }
