@@ -7,7 +7,6 @@ return {
     config = function()
         -- Setup Mason
         require('mason').setup()
-
         -- Setup languages installed from Mason with
         -- their default settings
 
@@ -69,7 +68,7 @@ return {
                         workspace = {
                             -- Make the server aware of Neovim runtime files
                             library = {
-                                vim.env.VIMRUNTIME,
+                                vim.api.nvim_get_runtime_file("", true),
                                 "${3rd}/luv/library",
                                 "${3rd}/busted/library",
                             },
