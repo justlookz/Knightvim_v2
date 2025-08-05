@@ -13,12 +13,6 @@ return {
         opts = {}
     },
     {
-        'echasnovski/mini.statusline',
-        lazy = false,
-        version = '*',
-        opts = {}
-    },
-    {
         'echasnovski/mini.diff',
         lazy = false,
         version = '*',
