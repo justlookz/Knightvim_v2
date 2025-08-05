@@ -6,14 +6,7 @@ return {
     },
     opts = {
         completion = {
-            menu = {auto_show = false},
-            trigger = { show_on_keyword = true },
-            list = {
-                selection = {
-                    preselect = true,
-                    auto_insert = true,
-                }
-            }
+            menu = { auto_show = false },
         },
         cmdline = {
             keymap = {
@@ -21,33 +14,33 @@ return {
                 ['<cr>'] = { 'accept', 'fallback' },
                 ['<C-y>'] = { 'select_and_accept' },
                 ['<tab>'] = {
-                    'show',
-                    function(cmp) cmp.select_next({ auto_insert = true }) end,
+                    'show_and_insert',
+                    function(cmp) cmp.select_next({ }) end,
                 },
                 ['<S-tab>'] = {
-                    'show',
-                    function(cmp) cmp.select_prev({ auto_insert = true }) end,
+                    'show_and_insert',
+                    function(cmp) cmp.select_prev({ }) end,
                 },
                 ['<C-n>'] = {
-                    'show',
-                    function(cmp) cmp.select_next({ auto_insert = true }) end,
+                    'show_and_insert',
+                    function(cmp) cmp.select_next({ }) end,
                 },
                 ['<C-p>'] = {
-                    'show',
-                    function(cmp) cmp.select_prev({ auto_insert = true }) end,
+                    'show_and_insert',
+                    function(cmp) cmp.select_prev({ }) end,
                 },
             }
         },
         keymap = {
             ['<C-space>'] = { 'show_documentation', 'hide_documentation' },
             ['<C-e>'] = { 'cancel', "hide" },
-            ['<C-y>'] = { 'select_and_accept', 'show' },
+            ['<C-y>'] = { 'select_and_accept', 'show_and_insert' },
             ['<C-n>'] = {
-                'show',
+                'show_and_insert',
                 function(cmp) cmp.select_next({ auto_insert = true }) end,
             },
             ['<C-p>'] = {
-                'show',
+                'show_and_insert',
                 function(cmp) cmp.select_prev({ auto_insert = true }) end,
             },
             ['<C-f>'] = { 'scroll_documentation_down', 'fallback' },
