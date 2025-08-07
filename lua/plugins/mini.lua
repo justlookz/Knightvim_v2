@@ -7,12 +7,6 @@ return {
         opts = {}
     },
     {
-        'echasnovski/mini.icons',
-        lazy = false,
-        version = '*',
-        opts = {}
-    },
-    {
         'echasnovski/mini.diff',
         lazy = false,
         version = '*',
