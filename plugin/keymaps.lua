@@ -1,7 +1,7 @@
 local map = vim.keymap.set
 
 -- Delete character without removing registers
-map("n", "x", '"_x', { noremap = true })
+map("n", "x", '"_x', { noremap = true, silent = true })
 -- buffer swapping
 
 -- Text movement
@@ -25,10 +25,6 @@ map("n", "<C-u>", "<C-u>zz",
     { desc = "Fast moving down and centered" })
 
 -- Keymaps for buffer
-map("n", "L", vim.cmd.bnext,
-    { desc = "Go to next buffer" })
-map("n", "H", vim.cmd.bprev,
-    { desc = "Go to previous buffer" })
 map("n", "<leader>bn", vim.cmd.bnext,
     { desc = "Go to next buffer" })
 map("n", "<leader>bp", vim.cmd.bprev,
@@ -52,3 +48,7 @@ map("n", "<ESC>", vim.cmd.nohlsearch,
 -- Indentation movement without losing selection
 map("v", ">", ">gv", { desc = "Left indentation" })
 map("v", "<", "<gv", { desc = "Right indentation" })
+
+-- Movement to the line
+map("n", "gh", "0", { desc = "Goto the start of the line"})
+map("n", "gl", "$", { desc = "Goto the end of the line"})

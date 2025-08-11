@@ -12,6 +12,11 @@ return {
         version = '*',
         opts = {
             view = { style = 'number' },
+            mappings = {
+                apply = "<leader>ga",
+                reset = "<leader>gr",
+                textobject = "<leader>go",
+            }
         }
     }
 }

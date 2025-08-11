@@ -25,8 +25,9 @@ return {
     },
     keys = {
         { "<leader>s", "", desc = "+Search for ..." },
+        { "<leader>g", "", desc = "+Git ..."},
         {
-            "<leader>g",
+            "<leader>gg",
             function() Snacks.lazygit() end,
             desc = "Lazygit",
         },
