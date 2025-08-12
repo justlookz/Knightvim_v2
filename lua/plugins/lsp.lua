@@ -12,16 +12,9 @@ return {
 
         local handlers = {
             -- The first entry (without a key) will be the default handler
-            -- and will be called for each installed server that doesn't have
-            -- a dedicated handler.
             function(server_name) -- default handler (optional)
-                -- require("lspconfig")[server_name].setup {
-                --      capabilities = capabilities
-                -- }
                 vim.lsp.enable(server_name)
             end,
-            -- Next, you can provide targeted overrides for specific servers.
-            -- Removed default handler for global installed
             ["jdtls"] = function() end,
             ["clangd"] = function() end,
             ["lua_ls"] = function() end,
@@ -52,35 +45,6 @@ return {
 
         -- Setup clangd language server for C/C++
         if vim.fn.executable("lua-language-server") then
-            vim.lsp.config('lua_ls', {
-                settings = {
-                    Lua = {
-                        runtime = {
-                            -- Tell the language server which version of Lua you're using
-                            version = 'LuaJIT',
-                            -- Setup your lua path
-                            path = vim.split(package.path, ';'),
-                        },
-                        diagnostics = {
-                            -- Get the language server to recognize the `vim` global
-                            globals = { 'vim' },
-                        },
-                        workspace = {
-                            -- Make the server aware of Neovim runtime files
-                            library = {
-                                vim.api.nvim_get_runtime_file("", true),
-                                "${3rd}/luv/library",
-                                "${3rd}/busted/library",
-                            },
-                            maxPreload = 1000,
-                            preloadFileSize = 50000,
-                        },
-                        telemetry = {
-                            enable = false,
-                        },
-                    },
-                },
-            })
             vim.lsp.enable('lua_ls')
         end
 
@@ -91,12 +55,6 @@ return {
 
         -- Setup tinymist for Typst
         if vim.fn.executable("tinymist") then
-            vim.lsp.config('tinymist', {
-                settings = {
-                    formatterMode = "typstyle",
-                    semanticTokens = "disable"
-                }
-            })
             vim.lsp.enable('tinymist')
         end
 
