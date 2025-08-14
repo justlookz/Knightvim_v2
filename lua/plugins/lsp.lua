@@ -1,26 +1,27 @@
+local mason_handlers = {
+    -- The first entry (without a key) will be the default handler
+    function(server_name)     -- default handler (optional)
+        vim.lsp.enable(server_name)
+    end,
+    ["jdtls"] = function() end,
+    ["clangd"] = function() end,
+    ["lua_ls"] = function() end,
+    ["tinymist"] = function() end,
+    ["gopls"] = function() end,
+    ["rust_analyzer"] = function() end,
+}
+
+
 local function lsp_setup()
     -- Setup Mason
     require('mason').setup()
     -- Setup languages installed from Mason with
     -- their default settings
 
-    local handlers = {
-        -- The first entry (without a key) will be the default handler
-        function(server_name)     -- default handler (optional)
-            vim.lsp.enable(server_name)
-        end,
-        ["jdtls"] = function() end,
-        ["clangd"] = function() end,
-        ["lua_ls"] = function() end,
-        ["tinymist"] = function() end,
-        ["gopls"] = function() end,
-        ["rust_analyzer"] = function() end,
-    }
-
     -- setup mason lspconfig
     require('mason-lspconfig').setup({
         ensure_installed = {},
-        handlers = handlers,
+        handlers = mason_handlers,
         automatic_installation = false
     })
 
@@ -67,6 +68,7 @@ end
 return {
     'neovim/nvim-lspconfig', -- Required
     dependencies = {
+    {"mfussenegger/nvim-jdtls"},
         { 'williamboman/mason.nvim' },
         { 'williamboman/mason-lspconfig.nvim' },
     },

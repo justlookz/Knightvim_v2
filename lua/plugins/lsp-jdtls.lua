@@ -6,6 +6,8 @@ local function jv_setup()
     local os_config = "linux"
     if vim.fn.has "mac" == 1 then
         os_config = "mac"
+    elseif vim.fn.has "win32" == 1 then
+        os_config = "win"
     end
 
     local config = {
@@ -38,6 +40,7 @@ local function jv_setup()
                         "**/lib/**/*.jar",
                         "**/build/libs/**/*.jar",
                         "**/target/**/*.jar",
+                        "*.jar",
                     }
                 }
             }
@@ -49,6 +52,7 @@ end
 
 return {
     "mfussenegger/nvim-jdtls",
+    lazy = false,
     dependencies = {
         { 'williamboman/mason.nvim' },
         { 'williamboman/mason-lspconfig.nvim' },
