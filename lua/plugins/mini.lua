@@ -1,22 +1,26 @@
----@diagnostic disable: undefined-global
 return {
     {
         'echasnovski/mini.comment',
-        lazy = false,
+        lazy    = false,
         version = '*',
-        opts = {}
+        opts    = {}
     },
     {
         'echasnovski/mini.diff',
-        lazy = false,
+        lazy    = false,
         version = '*',
         opts = {
             view = { style = 'number' },
             mappings = {
-                apply = "<leader>ga",
-                reset = "<leader>gr",
+                apply      = "<leader>ga",
+                reset      = "<leader>gr",
                 textobject = "<leader>go",
             }
         }
-    }
+    },
+    {
+        'echasnovski/mini.align',
+        version = '*',
+        opts    = { },
+    },
 }
