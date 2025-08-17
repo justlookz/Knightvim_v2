@@ -1,5 +1,7 @@
 vim.g.mapleader = " "
 
+vim.lsp.log.set_level(vim.log.levels.OFF)
+
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 --- if path none existed clone lazy to that path
 if not vim.loop.fs_stat(lazypath) then
