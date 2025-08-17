@@ -88,6 +88,7 @@ opt.synmaxcol      = 80
 opt.undofile       = true
 
 -- Fold options
+vim.opt.fillchars  = { fold = " " }
 opt.foldmethod     = "expr"
 o.foldexpr         = 'v:lua.vim.treesitter.foldexpr()'
 opt.foldlevelstart = 99

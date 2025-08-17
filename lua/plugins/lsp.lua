@@ -1,17 +1,3 @@
-local mason_handlers = {
-    -- The first entry (without a key) will be the default handler
-    function(server_name)     -- default handler (optional)
-        vim.lsp.enable(server_name)
-    end,
-    ["jdtls"] = function() end,
-    ["clangd"] = function() end,
-    ["lua_ls"] = function() end,
-    ["tinymist"] = function() end,
-    ["gopls"] = function() end,
-    ["rust_analyzer"] = function() end,
-}
-
-
 local function lsp_setup()
     -- Setup Mason
     require('mason').setup()
@@ -21,8 +7,17 @@ local function lsp_setup()
     -- setup mason lspconfig
     require('mason-lspconfig').setup({
         ensure_installed = {},
-        handlers = mason_handlers,
-        automatic_installation = false
+        automatic_installation = false,
+          automatic_enable = {
+            exclude = {
+                "jdtls",
+                "clangd",
+                "lua_ls",
+                "tinymist",
+                "gopls",
+                "rust_analyzer",
+            }
+          }
     })
 
     -- Setup lsp-config

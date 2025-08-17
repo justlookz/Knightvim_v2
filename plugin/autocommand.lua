@@ -8,15 +8,7 @@ local lsp_group = vim.api.nvim_create_augroup("lsp_group",
 aucmd('LspAttach', {
     group = lsp_group,
     callback = function(args)
-        map('n', 'K', vim.lsp.buf.hover,
-            { buffer = args.buf, desc = "Documentation from lsp" })
-
         map("n", "<leader>l", "", { desc = "+Lsp actions" })
-
-        map('n', 'gD', vim.lsp.buf.declaration, {
-            buffer = args.buf,
-            desc   = 'vim.lsp.buf.declaration()'
-        })
 
         map('n', 'grh', vim.diagnostic.open_float, {
             buffer = args.buf,
@@ -41,8 +33,8 @@ aucmd('LspAttach', {
         end
 
         map('n', '<leader>ld', function()
-            vim.diagnostic.enable(not vim.diagnostic.is_enabled())
-        end,
+                vim.diagnostic.enable(not vim.diagnostic.is_enabled())
+            end,
             {
                 desc = 'Toggle Diagnostics',
                 buffer = args.buf,
@@ -50,7 +42,7 @@ aucmd('LspAttach', {
         -- End of Keymaps --------------------
 
         if client then
-            if client.server_capabilities.inlayHintProvider then
+            if client.capabilities.textDocument.inlayHint then
                 map('n', "<leader>li", function()
                     vim.lsp.inlay_hint.enable(
                         vim.lsp.inlay_hint.is_enabled())
@@ -59,34 +51,6 @@ aucmd('LspAttach', {
                     buffer = args.buf,
                 })
             end
-        end
-
-        -- Highlighting word with lsp support under cursor
-        if client and client.server_capabilities.documentHighlightProvider then
-            local hightlight_word_group =
-                augroup(
-                    "hightlight_word_group", { clear = true }
-                )
-
-            aucmd(
-                { "CursorHold", "CursorHoldI" },
-                {
-                    group = hightlight_word_group,
-                    buffer = args.buf,
-                    callback = function()
-                        vim.lsp.buf.document_highlight()
-                    end
-                }
-            )
-
-            aucmd(
-                { "CursorMoved", "CursorMovedI" },
-                {
-                    group = hightlight_word_group,
-                    buffer = args.buf,
-                    callback = vim.lsp.buf.clear_references
-                }
-            )
         end
     end, -- callback end
 })
@@ -116,4 +80,18 @@ aucmd("BufWinLeave", {
     end
 })
 
-local init_vim = augroup("kvim-init-vim", { clear = true })
+aucmd("InsertEnter", {
+    callback = function()
+        if vim.o.nu then
+            vim.o.rnu = false
+        end
+    end
+})
+
+aucmd("InsertLeave", {
+    callback = function()
+        if vim.o.nu then
+            vim.o.rnu = true
+        end
+    end
+})
