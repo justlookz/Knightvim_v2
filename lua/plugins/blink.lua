@@ -32,7 +32,7 @@ return {
             ['<C-h>'] = { 'snippet_backward' },
         },
         sources = {
-            default = { 'snippets', 'lsp', 'path', 'buffer', "dadbod", "lazydev", "omni" },
+            default = { 'snippets', 'lsp', 'path', 'buffer', "lazydev", "omni" },
             providers = {
                 dadbod = {
                     name = "Dadbod",
