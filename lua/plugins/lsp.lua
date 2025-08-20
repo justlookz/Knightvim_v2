@@ -43,11 +43,6 @@ local function lsp_setup()
         vim.lsp.enable('gopls')
     end
 
-    -- Setup gopls for Golang
-    if vim.fn.executable("jdtls") then
-        vim.lsp.enable('jdtls')
-    end
-
     -- Setup tinymist for Typst
     if vim.fn.executable("tinymist") then
         vim.lsp.enable('tinymist')

@@ -50,5 +50,13 @@ map("v", ">", ">gv", { desc = "Left indentation" })
 map("v", "<", "<gv", { desc = "Right indentation" })
 
 -- Movement to the line
-map("n", "gh", "0", { desc = "Goto the start of the line"})
-map("n", "gl", "$", { desc = "Goto the end of the line"})
+map("n", "gh", "0", { desc = "Goto the start of the line" })
+map("n", "gl", "$", { desc = "Goto the end of the line" })
+
+-- Tab Switching
+map("n", "<C-1>", "1gt", { desc = "Goto 1st tab" })
+map("n", "<C-2>", "2gt", { desc = "Goto 2nd tab" })
+map("n", "<C-3>", "3gt", { desc = "Goto 3rd tab" })
+map("n", "<C-4>", "4gt", { desc = "Goto 4rd tab" })
+map("n", "<C-5>", "5gt", { desc = "Goto 5rd tab" })
+map("n", "<C-6>", "6gt", { desc = "Goto 6rd tab" })
