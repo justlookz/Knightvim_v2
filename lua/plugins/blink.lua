@@ -20,6 +20,7 @@ return {
             menu = { auto_show = false },
         },
         keymap = {
+            preset    = 'default',
             ['<C-n>'] = {
                 'show_and_insert',
                 function(cmp) cmp.select_next({ auto_insert = true }) end,
