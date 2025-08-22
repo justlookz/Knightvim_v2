@@ -20,17 +20,29 @@ return {
             menu = { auto_show = false },
         },
         keymap = {
-            preset    = 'default',
-            ['<C-n>'] = {
-                'show_and_insert',
-                function(cmp) cmp.select_next({ auto_insert = true }) end,
+            ['<C-space>'] = {
+                'show',
+                'show_documentation',
+                'hide_documentation',
             },
-            ['<C-p>'] = {
+            ['<C-n>']     = {
                 'show_and_insert',
-                function(cmp) cmp.select_prev({ auto_insert = true }) end,
+                function(cmp) cmp.select_next() end,
             },
-            ['<C-l>'] = { 'snippet_forward' },
-            ['<C-h>'] = { 'snippet_backward' },
+            ['<C-p>']     = {
+                'show_and_insert',
+                function(cmp) cmp.select_prev() end,
+            },
+            ['<C-l>']     = { 'snippet_forward' },
+            ['<C-h>']     = { 'snippet_backward' },
+            ['<C-b>']     = {
+                'scroll_documentation_up',
+                'fallback',
+            },
+            ['<C-f>']     = {
+                'scroll_documentation_down',
+                'fallback',
+            },
         },
         sources = {
             default = { 'snippets', 'lsp', 'path', 'buffer', "lazydev", "omni" },
