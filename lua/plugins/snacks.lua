@@ -49,8 +49,6 @@ return {
                 Snacks.picker.explorer(
                     {
                         layout = { layout = { position = "right" } },
-                        hidden = true, ignored = true,
-                        auto_close = true,
                     })
             end,
             desc = "Explorer",
@@ -67,7 +65,7 @@ return {
             function()
                 Snacks.picker.smart()
             end,
-            desc = "Search Files dybamic",
+            desc = "Search Files dynamic",
         },
         {
             "<leader>ss",
@@ -93,7 +91,7 @@ return {
         {
             "<leader>sh",
             function()
-                Snacks.picker.help()
+                Snacks.picker.help({ layout = "select" })
             end,
             desc = "Search help",
         },

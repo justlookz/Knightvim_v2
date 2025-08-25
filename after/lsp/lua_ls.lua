@@ -1,5 +1,5 @@
-local libs = vim.api.nvim_get_runtime_file("", true)
-table.insert(libs, vim.env.VIMRUNTIME)
+local libs = vim.api.nvim_get_runtime_file("lua", true)
+table.insert(libs, vim.env.VIMRUNTIME .. "/lua")
 
 return {
 	cmd = {"lua-language-server"},
@@ -16,4 +16,3 @@ return {
         },
     },
 }
-

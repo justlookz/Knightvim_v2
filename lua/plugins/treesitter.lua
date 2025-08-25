@@ -1,3 +1,5 @@
+-- Treesitter for highlighting and fold motion 
+
 local function treesitter_setup()
     require 'nvim-treesitter.configs'.setup {
         modules          = {},
@@ -9,14 +11,13 @@ local function treesitter_setup()
         auto_install     = true,
 
         highlight        = {
-            enable = false,
+            enable = true,
             additional_vim_regex_highlighting = false,
         },
         textobjects      = {
             select = {
                 enable = true,
                 keymaps = {
-                    -- You can use the capture groups defined in textobjects.scm
                     ["a="] = { query = "@assignment.outer", desc = "Select outer part of an assignment" },
                     ["i="] = { query = "@assignment.inner", desc = "Select inner part of an assignment" },
                     ["l="] = { query = "@assignment.lhs", desc = "Select left hand side of an assignment" },
@@ -45,7 +46,6 @@ local function treesitter_setup()
     }
 end
 
--- treesitter - for highlighting
 return {
     {
         "Wansmer/treesj",
@@ -59,6 +59,7 @@ return {
 
     {
         'nvim-treesitter/nvim-treesitter',
+        lazy = false,
         dependencies = { "nvim-treesitter/nvim-treesitter-textobjects" },
         build = ":silent TSUpdateSync",
         config = treesitter_setup,

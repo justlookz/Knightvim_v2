@@ -3,17 +3,6 @@ return {
     version = '*',
     dependencies = {
         "rafamadriz/friendly-snippets",
-        {
-            "folke/lazydev.nvim",
-            ft = "lua", -- only load on lua files
-            opts = {
-                library = {
-                    -- See the configuration section for more details
-                    -- Load luvit types when the `vim.uv` word is found
-                    { path = "${3rd}/luv/library", words = { "vim%.uv" } },
-                },
-            },
-        },
     },
     opts = {
         completion = {
@@ -45,19 +34,7 @@ return {
             },
         },
         sources = {
-            default = { 'snippets', 'lsp', 'path', 'buffer', "lazydev", "omni" },
-            providers = {
-                dadbod = {
-                    name = "Dadbod",
-                    module = "vim_dadbod_completion.blink",
-                },
-                lazydev = {
-                    name = "LazyDev",
-                    module = "lazydev.integrations.blink",
-                    -- make lazydev completions top priority (see `:h blink.cmp`)
-                    score_offset = 100,
-                },
-            }
+            default = { 'snippets', 'lsp', 'path', 'buffer', "omni" },
         }
     }
 }

@@ -30,6 +30,9 @@ opt.clipboard      = "unnamedplus"
 -- Mouse support
 opt.mouse          = "a" -- all
 
+-- Kind of selection
+opt.selection = "inclusive" -- With the box
+
 -- Size of spaces for tabs
 opt.tabstop        = 4
 -- How many spaces instead of tabs

@@ -33,7 +33,7 @@ local config = {
         "-data",
         workspace_dir,
     },
-    -- filetypes = { "java" },
+    filetypes = { "java" },
 
     root_dir = vim.fs.root(0, { "mvnw", "gradlew", "build.xml" }),
     -- root_markers = { {"mvnw", "gradlew", "build.xml"}, ".git" },
@@ -50,7 +50,9 @@ local config = {
                 useBlocks = true,
             },
             project = {
-                sourcePaths = { "", "src" },
+                sourcePaths = {
+                    "", "src", "src/main", "src/test",
+                },
                 referencedLibraries = {
                     "../**/libs/**/*.jar",
                     "../**/lib/**/*.jar",

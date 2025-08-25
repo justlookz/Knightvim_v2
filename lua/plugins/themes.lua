@@ -24,4 +24,11 @@ return {
 			vim.g.nord_italic = false
 		end
 	},
+    {
+        "rebelot/kanagawa.nvim",
+	opts = {
+        commentStyle = { italic = false },
+		keywordStyle = { italic = true},
+	}
+    }
 }
