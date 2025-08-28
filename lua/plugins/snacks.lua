@@ -10,7 +10,7 @@ return {
     opts = {
         bigfile = { enabled = true },
         dashboard = { enabled = false },
-        explorer = { enabled = false },
+        explorer = { enabled = true },
         indent = { enabled = true },
         input = { enabled = false },
         image = { enabled = false },

@@ -29,6 +29,7 @@ return {
 	opts = {
         commentStyle = { italic = false },
 		keywordStyle = { italic = true},
-	}
+	},
+    { "olimorris/onedarkpro.nvim" },
     }
 }

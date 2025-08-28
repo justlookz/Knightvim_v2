@@ -6,7 +6,41 @@ return {
     },
     opts = {
         completion = {
-            menu = { auto_show = false },
+            menu = {
+                auto_show = false,
+                draw = {
+                    treesitter = { 'lsp' },
+                    columns = {
+                        {
+                            "label",
+                            "label_description",
+                            gap = 1,
+                        },
+                        {
+                            "kind_icon",
+                            gap = 1,
+                            "kind",
+                            "source_name",
+                        }
+                    },
+                },
+            }
+        },
+        cmdline = {
+            keymap = {
+                ['<Tab>']     = { 'show', 'select_next' },
+                ['<S-Tab>']   = { 'show', 'select_prev' },
+                ['<CR>']      = { 'accept', 'fallback' },
+                ['<C-space>'] = { 'show', 'fallback' },
+                ['<C-n>']     = { 'insert_next', 'fallback' },
+                ['<C-p>']     = { 'insert_prev', 'fallback' },
+                ['<Right>']   = { 'select_next', 'fallback' },
+                ['<Left>']    = { 'select_prev', 'fallback' },
+
+                ['<C-y>']     = { 'select_and_accept' },
+                ['<C-e>']     = { 'cancel' },
+            },
+            completion = { menu = { auto_show = false } },
         },
         keymap = {
             ['<C-space>'] = {
@@ -15,12 +49,14 @@ return {
                 'hide_documentation',
             },
             ['<C-n>']     = {
-                'show_and_insert',
-                function(cmp) cmp.select_next() end,
+                'show',
+                function(cmp) cmp.insert_next() end,
             },
             ['<C-p>']     = {
-                'show_and_insert',
-                function(cmp) cmp.select_prev() end,
+                'show',
+                function(cmp)
+                    cmp.insert_prev()
+                end,
             },
             ['<C-l>']     = { 'snippet_forward' },
             ['<C-h>']     = { 'snippet_backward' },
