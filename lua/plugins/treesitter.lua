@@ -51,7 +51,7 @@ return {
         "Wansmer/treesj",
         opts = { use_default_keymaps = false },
         keys = { {
-            "<leader>f",
+            "<leader>m",
             function() require("treesj").toggle() end,
             desc = "Toggle split - join",
         } }

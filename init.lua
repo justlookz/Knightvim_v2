@@ -1,3 +1,5 @@
+vim.loader.enable(true)
+
 vim.g.mapleader = " "
 
 vim.lsp.log.set_level(vim.log.levels.OFF)

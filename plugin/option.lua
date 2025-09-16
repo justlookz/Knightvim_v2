@@ -31,7 +31,7 @@ opt.clipboard      = "unnamedplus"
 opt.mouse          = "a" -- all
 
 -- Kind of selection
-opt.selection = "inclusive" -- With the box
+opt.selection      = "inclusive" -- With the box
 
 -- Size of spaces for tabs
 opt.tabstop        = 4
@@ -96,23 +96,22 @@ opt.foldmethod     = "expr"
 o.foldexpr         = 'v:lua.vim.treesitter.foldexpr()'
 opt.foldlevelstart = 99
 opt.spell          = true
----@diagnostic disable-next-line: missing-fields
 opt.spelllang      = { "el", "en" }
 
 -- Show character on those element
----@diagnostic disable-next-line: missing-fields
 opt.showbreak      = "|"
 
----@diagnostic disable-next-line: missing-fields
 opt.colorcolumn    = { 64, 78 }
 
 -- For mkview
----@diagnostic disable-next-line: missing-fields
 opt.viewoptions    = { "folds", "cursor" }
 
 vim.diagnostic.config({ virtual_text = true, virtual_lines = false })
 
 vim.opt.laststatus = 3
 
--- Completion and staf bordee
-vim.o.winborder = "bold"
+-- Completion and staff bordee
+vim.o.winborder    = "bold"
+
+-- Path for find - vimgrep
+vim.o.path = vim.o.path .. ",**"
