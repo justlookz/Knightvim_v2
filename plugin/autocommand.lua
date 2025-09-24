@@ -39,6 +39,12 @@ aucmd('LspAttach', {
                 desc = 'Toggle Diagnostics',
                 buffer = args.buf,
             })
+
+        map('n', '<leader>lq', vim.diagnostic.setqflist,
+            {
+                desc = "Diagnostics to quicklist"
+            }
+        )
         -- End of Keymaps --------------------
 
         if client then
