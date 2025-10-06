@@ -3,45 +3,37 @@ local function dap_setup()
 
     -- Config for gdb
     if vim.fn.executable("gdb") then
-        dap.adapters.gdb = {
-            type = "executable",
-            command = "gdb",
-            args = { "--interpreter=dap", "--eval-command", "set print pretty on" }
+        dap.adapters.cppdbg = {
+            id = 'cppdbg',
+            type = 'executable',
+            command = vim.fn.stdpath('data') .. '/mason/packages/cpptools/extension/debugAdapters/bin/OpenDebugAD7',
+            options = {
+                detached = false
+            }
         }
 
         dap.configurations.c = {
             {
-                name = "Launch",
-                type = "gdb",
+                name = "Launch file",
+                type = "cppdbg",
                 request = "launch",
                 program = function()
                     return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
                 end,
-                cwd = "${workspaceFolder}",
-                stopAtBeginningOfMainSubprogram = false,
-            },
-            {
-                name = "Select and attach to process",
-                type = "gdb",
-                request = "attach",
-                program = function()
-                    return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
-                end,
-                pid = function()
-                    local name = vim.fn.input('Executable name (filter): ')
-                    return require("dap.utils").pick_process({ filter = name })
-                end,
-                cwd = '${workspaceFolder}'
+                cwd = '${workspaceFolder}',
+                stopAtEntry = true,
             },
             {
                 name = 'Attach to gdbserver :1234',
-                type = 'gdb',
-                request = 'attach',
-                target = 'localhost:1234',
+                type = 'cppdbg',
+                request = 'launch',
+                MIMode = 'gdb',
+                miDebuggerServerAddress = 'localhost:1234',
+                miDebuggerPath = '/usr/bin/gdb',
+                cwd = '${workspaceFolder}',
                 program = function()
                     return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
                 end,
-                cwd = '${workspaceFolder}'
             },
         }
 

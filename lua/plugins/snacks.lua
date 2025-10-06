@@ -257,6 +257,7 @@ return {
             function() Snacks.picker.undo() end,
             desc = "Undo History",
         },
+        { "<leader>u", "",  desc = "UI"},
         {
             "<leader>uC",
             function() Snacks.picker.colorschemes() end,
@@ -274,7 +275,7 @@ return {
             desc = "Goto Declaration",
         },
         {
-            "gr",
+            "grr",
             function() Snacks.picker.lsp_references() end,
             nowait = true,
             desc = "References",

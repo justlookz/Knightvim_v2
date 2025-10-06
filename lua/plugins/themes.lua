@@ -1,35 +1,43 @@
 return {
-	{
-		"catppuccin/nvim",
-		name = "catppuccin",
-	},
+    {
+        "catppuccin/nvim",
+        name = "catppuccin",
+    },
 
-	{
-		"ellisonleao/gruvbox.nvim",
-		opts = {
-			italic = {
-				strings = false,
-				emphasis = false,
-				comments = false,
-				operators = false,
-				folds = false,
-			},
-		}
-	},
-	{ "miikanissi/modus-themes.nvim" },
+    {
+        "ellisonleao/gruvbox.nvim",
+        opts = {
+            italic = {
+                strings = false,
+                emphasis = false,
+                comments = false,
+                operators = false,
+                folds = false,
+            },
+        }
+    },
+    { "miikanissi/modus-themes.nvim" },
 
-	{
-		"shaunsingh/nord.nvim",
-		init = function()
-			vim.g.nord_italic = false
-		end
-	},
+    {
+        "shaunsingh/nord.nvim",
+        init = function()
+            vim.g.nord_italic = false
+        end
+    },
     {
         "rebelot/kanagawa.nvim",
-	opts = {
-        commentStyle = { italic = false },
-		keywordStyle = { italic = true},
-	},
+        opts = {
+            commentStyle = { italic = false },
+            keywordStyle = { italic = true },
+        },
+    },
     { "olimorris/onedarkpro.nvim" },
-    }
+    {
+        "neanias/everforest-nvim",
+        name = "everforest",
+	opts = {
+		background = 'soft',
+		disable_italic_comments = true,
+	}
+    },
 }
