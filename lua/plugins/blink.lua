@@ -54,9 +54,7 @@ return {
             },
             ['<C-p>']     = {
                 'show',
-                function(cmp)
-                    cmp.insert_prev()
-                end,
+                function(cmp) cmp.insert_prev() end,
             },
             ['<C-l>']     = { 'snippet_forward' },
             ['<C-h>']     = { 'snippet_backward' },

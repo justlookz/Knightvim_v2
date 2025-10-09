@@ -7,7 +7,6 @@ return {
     },
     {
         'echasnovski/mini.diff',
-        lazy    = false,
         version = '*',
         opts = {
             view = { style = 'number' },
