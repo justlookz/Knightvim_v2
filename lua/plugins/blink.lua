@@ -28,7 +28,13 @@ return {
         },
         cmdline = {
             keymap = {
-                ['<Tab>']     = { 'show', 'select_next' },
+                ['<tab>']     = { function(cmp)
+                    if cmp.is_visible() then
+                        return cmp.select_next()
+                    else
+                        return cmp.show()
+                    end
+                end, },
                 ['<S-Tab>']   = { 'show', 'select_prev' },
                 ['<CR>']      = { 'accept', 'fallback' },
                 ['<C-space>'] = { 'show', 'fallback' },
@@ -37,7 +43,9 @@ return {
                 ['<Right>']   = { 'select_next', 'fallback' },
                 ['<Left>']    = { 'select_prev', 'fallback' },
 
-                ['<C-y>']     = { 'select_and_accept' },
+                ['<C-y>']     = {
+                    'select_and_accept',
+                },
                 ['<C-e>']     = { 'cancel' },
             },
             completion = { menu = { auto_show = false } },
@@ -49,9 +57,13 @@ return {
                 'hide_documentation',
             },
             ['<C-n>']     = {
-                'show',
-                function(cmp) cmp.insert_next() end,
-            },
+                function(cmp)
+                if cmp.is_visible() then
+                    return cmp.select({index = 1})
+                else
+                    return cmp.show()
+                end
+            end },
             ['<C-p>']     = {
                 'show',
                 function(cmp) cmp.insert_prev() end,
