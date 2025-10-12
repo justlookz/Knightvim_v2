@@ -10,19 +10,17 @@ local function lsp_setup()
         automatic_installation = false,
           automatic_enable = {
             exclude = {
-                "jdtls",
-                "clangd",
-                "lua_ls",
-                "tinymist",
-                "gopls",
-                "rust_analyzer",
+                "jdtls", "clangd", "lua_ls",
+                "tinymist", "gopls", "rust_analyzer",
             }
           }
     })
 
     -- Setup lsp-config
     vim.lsp.config('*', {
-        root_markers = { '.git', "Makefile" },
+        root_markers = {
+            '.git', "Makefile", "build.py", "build.sh",
+        },
     })
 
     -- Setup clangd language server for C/C++
