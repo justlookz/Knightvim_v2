@@ -80,7 +80,7 @@ return {
             },
         },
         sources = {
-            default = { 'snippets', 'lsp', 'path', 'buffer', "omni" },
+            default = { 'lsp', 'snippets', 'path', 'buffer', "omni" },
         }
     }
 }
