@@ -82,7 +82,7 @@ aucmd("BufWinEnter", {
 aucmd("BufWinLeave", {
     group = augroup("kvim-ts-Buf-Leave", { clear = true }),
     callback = function()
-        if not vim.opt_local.modifiable:get() then
+        if vim.opt_local.modifiable:get() then
             pcall(vim.cmd.mkview)
         end
     end
