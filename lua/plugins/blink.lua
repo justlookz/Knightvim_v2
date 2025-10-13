@@ -28,20 +28,28 @@ return {
         },
         cmdline = {
             keymap = {
-                ['<tab>']     = { function(cmp)
-                    if cmp.is_visible() then
-                        return cmp.select_next()
-                    else
+                ['<tab>']     = {
+                    function(cmp)
+                        if cmp.is_visible() then
+                            return cmp.select_next()
+                        end
                         return cmp.show()
-                    end
-                end, },
-                ['<S-Tab>']   = { 'show', 'select_prev' },
+                    end,
+                },
+                ['<S-Tab>']   = {
+                    function(cmp)
+                        if cmp.is_visible() then
+                            return cmp.select_prev()
+                        end
+                        return cmp.show()
+                    end,
+                },
                 ['<CR>']      = { 'accept', 'fallback' },
                 ['<C-space>'] = { 'show', 'fallback' },
-                ['<C-n>']     = { 'insert_next', 'fallback' },
-                ['<C-p>']     = { 'insert_prev', 'fallback' },
-                ['<Right>']   = { 'select_next', 'fallback' },
-                ['<Left>']    = { 'select_prev', 'fallback' },
+                ['<C-n>']  = { 'insert_next', 'fallback' },
+                ['<C-p>']  = { 'insert_prev', 'fallback' },
+                ['<Down>'] = { 'select_next', 'fallback' },
+                ['<Up>']   = { 'select_prev', 'fallback' },
 
                 ['<C-y>']     = {
                     'select_and_accept',
@@ -64,17 +72,17 @@ return {
                     return cmp.show()
                 end
             end },
-            ['<C-p>']     = {
+            ['<C-p>'] = {
                 'show',
                 function(cmp) cmp.insert_prev() end,
             },
-            ['<C-l>']     = { 'snippet_forward' },
-            ['<C-h>']     = { 'snippet_backward' },
-            ['<C-b>']     = {
+            ['<C-l>'] = { 'snippet_forward' },
+            ['<C-h>'] = { 'snippet_backward' },
+            ['<C-b>'] = {
                 'scroll_documentation_up',
                 'fallback',
             },
-            ['<C-f>']     = {
+            ['<C-f>'] = {
                 'scroll_documentation_down',
                 'fallback',
             },
