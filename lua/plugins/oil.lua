@@ -9,7 +9,13 @@ return {
     keys = {
         {
             "<leader>o",
-            function() require("oil").open() end,
+            function()
+                if vim.o.filetype ~= "oil" then
+                    require("oil").open()
+                else
+                    require("oil").close()
+                end
+            end,
             desc = "Oil"
         },
     }
