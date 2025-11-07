@@ -46,10 +46,10 @@ return {
                 },
                 ['<CR>']      = { 'accept', 'fallback' },
                 ['<C-space>'] = { 'show', 'fallback' },
-                ['<C-n>']  = { 'insert_next', 'fallback' },
-                ['<C-p>']  = { 'insert_prev', 'fallback' },
-                ['<Down>'] = { 'select_next', 'fallback' },
-                ['<Up>']   = { 'select_prev', 'fallback' },
+                ['<C-n>']     = { 'select_next', 'fallback' },
+                ['<C-p>']     = { 'select_prev', 'fallback' },
+                ['<Down>']    = { 'select_next', 'fallback' },
+                ['<Up>']      = { 'select_prev', 'fallback' },
 
                 ['<C-y>']     = {
                     'select_and_accept',
@@ -66,23 +66,28 @@ return {
             },
             ['<C-n>']     = {
                 function(cmp)
-                if cmp.is_visible() then
-                    return cmp.select({index = 1})
-                else
-                    return cmp.show()
-                end
-            end },
-            ['<C-p>'] = {
-                'show',
-                function(cmp) cmp.insert_prev() end,
+                    if cmp.is_visible() then
+                        return cmp.select_next({ index = 1 })
+                    else
+                        return cmp.show()
+                    end
+                end },
+            ['<C-p>']     = {
+                function(cmp)
+                    if cmp.is_visible() then
+                        cmp.select_prev()
+                    else
+                        return cmp.show()
+                    end
+                end,
             },
-            ['<C-l>'] = { 'snippet_forward' },
-            ['<C-h>'] = { 'snippet_backward' },
-            ['<C-b>'] = {
+            ['<C-l>']     = { 'snippet_forward' },
+            ['<C-h>']     = { 'snippet_backward' },
+            ['<C-b>']     = {
                 'scroll_documentation_up',
                 'fallback',
             },
-            ['<C-f>'] = {
+            ['<C-f>']     = {
                 'scroll_documentation_down',
                 'fallback',
             },

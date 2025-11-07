@@ -56,6 +56,11 @@ local function lsp_setup()
     if vim.fn.executable("ruff") then
         vim.lsp.enable("ruff")
     end
+
+    -- Setup ty for Python
+    if vim.fn.executable("ty") then
+        vim.lsp.enable("ty")
+    end
 end
 
 return {
