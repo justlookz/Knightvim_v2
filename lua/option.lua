@@ -135,3 +135,16 @@ function _G.StatuslineMode()
     }
     return modes[vim.fn.mode()] or vim.fn.mode()
 end
+
+function _G.Find(cmdarg, _)
+    local files
+    if vim.fn.executable("fd") == 1 then
+        local res = vim.system({"fd", cmdarg}):wait()
+        files = vim.split(res.stdout, "\n", {trimempty = true})
+    else
+        files = vim.fn.globpath('.', '**/*', false, true)
+    end
+    return #cmdarg == 0 and files or vim.fn.matchfuzzy(files, cmdarg)
+end
+
+vim.o.findfunc = 'v:lua.Find'
