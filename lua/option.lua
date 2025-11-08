@@ -22,7 +22,7 @@ vim.filetype.add(
 opt.termguicolors  = true
 
 -- Options for messages
-opt.shortmess      = "IfilnxtToOF"
+opt.shortmess      = "filnxtToOF"
 
 -- Copy from clipboard
 opt.clipboard      = "unnamedplus"
@@ -115,3 +115,23 @@ vim.o.winborder    = "bold"
 
 -- Path for find - vimgrep
 vim.o.path = vim.o.path .. ",**"
+
+-- StatusLine
+vim.o.statusline =
+    '%#PmenuSel# [%{v:lua.StatuslineMode()}] %*'
+    .. ' %f - %y'
+    .. '%='
+    .. '%#LineNr# %l:%c %*'
+
+function _G.StatuslineMode()
+    local modes = {
+        n = 'NORMAL',
+        i = 'INSERT',
+        v = 'VISUAL',
+        V = 'V-LINE',
+        [''] = 'V-BLOCK',
+        R = 'REPLACE',
+        c = 'COMMAND'
+    }
+    return modes[vim.fn.mode()] or vim.fn.mode()
+end

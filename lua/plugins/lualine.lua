@@ -1,5 +1,6 @@
 return {
     lazy = false,
+    enabled = false,
     'nvim-lualine/lualine.nvim',
     dependencies = {
         "nvim-tree/nvim-web-devicons",

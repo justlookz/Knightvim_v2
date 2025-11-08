@@ -1,4 +1,4 @@
-return {
+return { {
     'saghen/blink.cmp',
     version = '*',
     dependencies = {
@@ -95,5 +95,13 @@ return {
         sources = {
             default = { 'lsp', 'snippets', 'path', 'buffer', "omni" },
         }
+    }
+},
+    {
+        'saghen/blink.indent',
+        --- @module 'blink.indent'
+        --- @type blink.indent.Config
+        opts = {},
+        lazy = false,
     }
 }

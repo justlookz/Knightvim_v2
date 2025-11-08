@@ -1,5 +1,9 @@
 vim.g.mapleader = " "
 
+require("option")
+require("autocommand")
+require("keymaps")
+
 vim.lsp.log.set_level(vim.log.levels.OFF)
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
