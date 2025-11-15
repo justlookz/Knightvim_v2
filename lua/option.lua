@@ -116,12 +116,21 @@ vim.o.winborder    = "bold"
 -- Path for find - vimgrep
 vim.o.path = vim.o.path .. ",**"
 
+function _G.GitBranchName()
+    local res = vim.system({"git", "branch", "--show-current"}):wait()
+    if res.code == 0 then
+        return " [ " .. res.stdout .. "]"
+    end
+    return ""
+end
+
 -- StatusLine
 vim.o.statusline =
     '%#PmenuSel# [%{v:lua.StatuslineMode()}] %*'
-    .. ' %f - %y'
+    .. "%{v:lua.GitBranchName()}"
+    .. '%=%f'
     .. '%='
-    .. '%#LineNr# %l:%c %*'
+    .. '%y %l:%c %*'
 
 function _G.StatuslineMode()
     local modes = {
@@ -140,6 +149,9 @@ function _G.Find(cmdarg, _)
     local files
     if vim.fn.executable("fd") == 1 then
         local res = vim.system({"fd", cmdarg}):wait()
+        files = vim.split(res.stdout, "\n", {trimempty = true})
+    elseif vim.fn.executable("find" ) == 1 then
+        local res = vim.system({"find *", cmdarg .. "*"}):wait()
         files = vim.split(res.stdout, "\n", {trimempty = true})
     else
         files = vim.fn.globpath('.', '**/*', false, true)
