@@ -23,7 +23,7 @@ local function create_tinymist_command(command_name)
                 return vim.notify(err.code .. ': ' .. err.message, vim.log.levels.ERROR)
             end
             -- If exporting, show the string result; else, show the table for inspection
-            vim.notify(export_type and res or vim.inspect(res), vim.log.levels.INFO)
+            vim.print("Saved at: " .. res.path)
         end
         if vim.fn.has 'nvim-0.11' == 1 then
             -- For Neovim 0.11+
@@ -43,10 +43,6 @@ local function create_tinymist_command(command_name)
 end
 
 return {
-    cmd = { 'tinymist' },
-    filetypes = { 'typst' },
-    root_markers = { ".git" },
-    single_file_support = true,
     settings = {
         formatterMode = "typstyle",
         semanticTokens = "disable"
