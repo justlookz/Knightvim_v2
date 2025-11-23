@@ -8,9 +8,7 @@ return {
         },
         filetypes = {
             "*",
-            css = { names = true, rgb_fn = true, oklch_fn = true, RRGGBBAA = true }, -- Enable parsing rgb(...) and oklch(...) functions in css.
-            html = { names = false },                                                -- Disable parsing "names" like Blue or Gray
-            sass = { names = true, },
+            css = { rgb_fn = true, oklch_fn = true, RRGGBBAA = true }, -- Enable parsing rgb(...) and oklch(...) functions in css.
         }
     },
 }
