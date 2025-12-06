@@ -91,7 +91,7 @@ opt.synmaxcol      = 80
 opt.undofile       = true
 
 -- Fold options
-vim.opt.fillchars  = { fold = " " }
+opt.fillchars  = { fold = " " }
 opt.foldmethod     = "expr"
 o.foldexpr         = 'v:lua.vim.treesitter.foldexpr()'
 opt.foldlevelstart = 99
@@ -108,13 +108,13 @@ opt.viewoptions    = { "folds", "cursor" }
 
 vim.diagnostic.config({ virtual_text = true, virtual_lines = false })
 
-vim.opt.laststatus = 3
+opt.laststatus = 3
 
 -- Completion and staff bordee
-vim.o.winborder    = "bold"
+o.winborder    = "bold"
 
 -- Path for find - vimgrep
-vim.o.path = vim.o.path .. ",**"
+o.path = vim.o.path .. ",**"
 
 function _G.GitBranchName()
     local res = vim.system({"git", "branch", "--show-current"}):wait()
@@ -125,7 +125,7 @@ function _G.GitBranchName()
 end
 
 -- StatusLine
-vim.o.statusline =
+o.statusline =
     '%#PmenuSel# [%{v:lua.StatuslineMode()}] %*'
     .. "%{v:lua.GitBranchName()}"
     .. '%=%f'
@@ -159,4 +159,4 @@ function _G.Find(cmdarg, _)
     return #cmdarg == 0 and files or vim.fn.matchfuzzy(files, cmdarg)
 end
 
-vim.o.findfunc = 'v:lua.Find'
+o.findfunc = 'v:lua.Find'

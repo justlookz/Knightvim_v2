@@ -31,8 +31,10 @@ local function lsp_setup()
         vim.lsp.enable('clangd')
     end
 
-    -- Setup clangd language server for C/C++
-    if vim.fn.executable("lua-language-server") then
+    -- Setup lua language server for lua
+    if vim.fn.executable("emmylua_ls") then
+        vim.lsp.enable("emmylua_ls")
+    elseif vim.fn.executable("lua-language-server") then
         vim.lsp.enable('lua_ls')
     end
 
