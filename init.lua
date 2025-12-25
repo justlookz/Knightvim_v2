@@ -21,7 +21,7 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
---- This is used to load lazy from pligins folder
+--- This is used to load lazy from plugins folder
 require("lazy").setup({
         { import = "plugins" },
     },

@@ -49,6 +49,7 @@ end
 return {
     {
         "Wansmer/treesj",
+        lazy = "VeryLazy",
         opts = { use_default_keymaps = false },
         keys = { {
             "<leader>m",

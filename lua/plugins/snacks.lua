@@ -4,7 +4,7 @@ return {
     init = function()
         vim.g.snacks_animate = false
     end,
-    lazy = false,
+    lazy = "VeryLazy",
     ---@diagnostic disable-next-line: undefined-doc-name
     ---@type snacks.Config
     opts = {
