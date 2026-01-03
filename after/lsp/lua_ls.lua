@@ -27,6 +27,7 @@ return {
                 checkThirdParty = false,
                 library = {
                     vim.env.VIMRUNTIME,
+                    vim.env.VIMRUNTIME .. "/lua",
                     '${3rd}/luv/library',
                     '${3rd}/busted/library',
                     vim.fn.stdpath("data")

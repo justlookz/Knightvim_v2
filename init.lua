@@ -1,3 +1,4 @@
+---@diagnostic disable: missing-fields
 vim.g.mapleader = " "
 
 require("option")
@@ -7,8 +8,9 @@ require("keymaps")
 vim.lsp.log.set_level(vim.log.levels.OFF)
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+---@diagnostic disable-next-line: undefined-field
 --- if path none existed clone lazy to that path
-if not vim.loop.fs_stat(lazypath) then
+if not vim.uv.fs_stat(lazypath) then
     vim.fn.system({
         "git",
         "clone",
@@ -25,7 +27,7 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
         { import = "plugins" },
     },
-
+    ---@diagnostic disable-next-line: param-type-mismatch
     {
         install = {
             colorscheme = { "gruvbox" },
