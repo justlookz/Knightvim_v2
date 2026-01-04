@@ -113,8 +113,11 @@ opt.laststatus = 3
 -- Completion and staff bordee
 o.winborder    = "bold"
 
+-- For long lines, inprove scrolling without jumping arround
+o.smoothscroll = true
+
 -- Path for find - vimgrep
-o.path = vim.o.path .. ",**"
+o.path = o.path .. ",**"
 
 function _G.GitBranchName()
     local res = vim.system({"git", "branch", "--show-current"}):wait()
