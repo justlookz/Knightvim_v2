@@ -60,9 +60,12 @@ return {
 
     {
         'nvim-treesitter/nvim-treesitter',
+        branch = "main",
         lazy = "VeryLazy",
-        dependencies = { "nvim-treesitter/nvim-treesitter-textobjects" },
-        build = ":silent TSUpdateSync",
+        dependencies = {
+            "nvim-treesitter/nvim-treesitter-textobjects",
+            branch = "main",
+        },
         config = treesitter_setup,
     }
 }
