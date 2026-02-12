@@ -1,10 +1,5 @@
 return {
     {
-        "catppuccin/nvim",
-        name = "catppuccin",
-    },
-
-    {
         "ellisonleao/gruvbox.nvim",
         opts = {
             italic = {
@@ -15,29 +10,5 @@ return {
                 folds = false,
             },
         }
-    },
-    { "miikanissi/modus-themes.nvim" },
-
-    {
-        "shaunsingh/nord.nvim",
-        init = function()
-            vim.g.nord_italic = false
-        end
-    },
-    {
-        "rebelot/kanagawa.nvim",
-        opts = {
-            commentStyle = { italic = false },
-            keywordStyle = { italic = true },
-        },
-    },
-    { "olimorris/onedarkpro.nvim" },
-    {
-        "neanias/everforest-nvim",
-        name = "everforest",
-	opts = {
-		background = 'soft',
-		disable_italic_comments = true,
-	}
     },
 }
