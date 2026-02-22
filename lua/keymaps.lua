@@ -52,5 +52,15 @@ map("v", "<", "<gv", { desc = "Right indentation" })
 -- Movement to the line
 map("n", "gh", "0", { desc = "Goto the start of the line" })
 map("n", "gl", "$", { desc = "Goto the end of the line" })
-map("n", "j", "gj", { desc = "Move down with wrap in mind" })
-map("n", "k", "gk", { desc = "Move up with wrap in mind" })
+map("n", "j", function()
+        return vim.v.count == 0 and "gj" or "j"
+    end, {
+    expr = true,
+    desc = "Move down with wrap in mind"
+})
+map("n", "k", function()
+        return vim.v.count == 0 and "gk" or "k"
+    end, {
+    expr = true,
+    desc = "Move up with wrap in mind"
+})

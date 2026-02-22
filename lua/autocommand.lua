@@ -2,7 +2,7 @@ local map = vim.keymap.set
 local augroup = vim.api.nvim_create_augroup
 local aucmd = vim.api.nvim_create_autocmd
 
-local lsp_group = vim.api.nvim_create_augroup("lsp_group",
+local lsp_group = augroup("lsp_group",
     { clear = true })
 
 aucmd('LspAttach', {
@@ -106,5 +106,7 @@ aucmd("InsertLeave", {
 
 aucmd("FileType", {
     pattern = "*",
-    callback = function() pcall(vim.treesitter.start) end,
+    callback = function()
+        pcall(vim.treesitter.start)
+    end,
 })
