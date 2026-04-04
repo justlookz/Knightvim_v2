@@ -21,7 +21,7 @@ local function treesitter_textobjects_setup()
             lookahead = true,
             selection_modes = {
                 ['@parameter.outer'] = 'v', -- charwise
-                ['@function.outer'] = 'V', -- linewise
+                ['@function.outer'] = 'V',  -- linewise
             },
             include_surrounding_whitespace = false,
         },
@@ -41,7 +41,7 @@ local function treesitter_textobjects_setup()
     end, { desc = "class" })
     vim.keymap.set({ "x", "o" }, "ic", function()
         require "nvim-treesitter-textobjects.select".select_textobject("@class.inner", "textobjects")
-    end, { desc = "class"})
+    end, { desc = "class" })
     vim.keymap.set({ "x", "o" }, "as", function()
         require "nvim-treesitter-textobjects.select".select_textobject("@local.scope", "locals")
     end, { desc = "local scope" })
@@ -69,14 +69,14 @@ local function treesitter_textobjects_setup()
     end, { desc = "outer class" })
     vim.keymap.set({ "n", "x", "o" }, "[f", function()
         require("nvim-treesitter-textobjects.move").goto_previous_start("@function.outer", "textobjects")
-    end, { desc = "Outer function" } )
+    end, { desc = "Outer function" })
     vim.keymap.set({ "n", "x", "o" }, "[c", function()
         require("nvim-treesitter-textobjects.move").goto_previous_start("@class.outer", "textobjects")
     end)
 
     vim.keymap.set({ "n", "x", "o" }, "[f", function()
         require("nvim-treesitter-textobjects.move").goto_previous_end("@function.outer", "textobjects")
-    end, {desc = "outer function" })
+    end, { desc = "outer function" })
     vim.keymap.set({ "n", "x", "o" }, "[c", function()
         require("nvim-treesitter-textobjects.move").goto_previous_end("@class.outer", "textobjects")
     end, { desc = "outer class" })
@@ -114,6 +114,7 @@ return {
         'nvim-treesitter/nvim-treesitter',
         branch = "main",
         lazy = "VeryLazy",
+        cmd = { "TSInstall" },
         dependencies = {
             "nvim-treesitter/nvim-treesitter-textobjects",
             branch = "main",
@@ -121,5 +122,14 @@ return {
             lazy = false,
         },
         config = treesitter_setup,
+        init = function()
+            local function TSInstall(opts)
+                require("nvim-treesitter").install(opts.args)
+            end
+
+            vim.api.nvim_create_user_command("TSInstall", TSInstall, {
+                nargs = "?",
+            })
+        end,
     }
 }
