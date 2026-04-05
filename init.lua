@@ -29,6 +29,7 @@ require("lazy").setup({
     },
     ---@diagnostic disable-next-line: param-type-mismatch
     {
+        git = { timeout = 240 },
         install = {
             colorscheme = { "gruvbox" },
         },
