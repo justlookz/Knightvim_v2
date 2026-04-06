@@ -3,8 +3,7 @@ local opt = vim.opt
 local g = vim.g
 local o = vim.o
 
--- Netrw settings
-
+opt.syntax = opt.ft:get()
 -- Remove banner
 g.netrw_banner = 0
 

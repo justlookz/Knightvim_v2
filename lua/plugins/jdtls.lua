@@ -52,6 +52,7 @@ local config = {
             project = {
                 sourcePaths = {
                     "", "src", "src/main", "src/test",
+                    "src/java"
                 },
                 referencedLibraries = {
                     "../**/libs/**/*.jar",
