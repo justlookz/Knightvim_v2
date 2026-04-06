@@ -1,6 +1,10 @@
 ---@diagnostic disable: missing-fields
 vim.g.mapleader = " "
 
+require('vim._core.ui2').enable({})
+
+vim.cmd.packadd[[nvim.undotree]]
+
 require("option")
 require("autocommand")
 require("keymaps")
@@ -38,5 +42,4 @@ require("lazy").setup({
             notify = false,
         },
     })
-
 vim.cmd.colorscheme("gruvbox")
