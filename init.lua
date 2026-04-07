@@ -8,6 +8,7 @@ vim.cmd.packadd[[nvim.undotree]]
 require("option")
 require("autocommand")
 require("keymaps")
+require("completion")
 
 vim.lsp.log.set_level(vim.log.levels.OFF)
 

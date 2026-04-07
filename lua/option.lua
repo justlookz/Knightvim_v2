@@ -3,7 +3,6 @@ local opt = vim.opt
 local g = vim.g
 local o = vim.o
 
-o.syntax = "ON"
 -- Remove banner
 g.netrw_banner = 0
 
