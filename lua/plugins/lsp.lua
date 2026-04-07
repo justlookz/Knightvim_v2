@@ -34,7 +34,7 @@ local function lsp_setup()
     -- Setup lua language server for lua
     if vim.fn.executable("emmylua_ls") == 1 then
         vim.lsp.enable("emmylua_ls")
-    elseif vim.fn.executable("lua-language-server") then
+    elseif vim.fn.executable("lua-language-server") == 1 then
         vim.lsp.enable('lua_ls')
     end
 
@@ -47,7 +47,6 @@ local function lsp_setup()
     if vim.fn.executable("tinymist") == 1 then
         vim.lsp.enable('tinymist')
     end
-
 
     -- Setup Rust-analyzer for Rust
     if vim.fn.executable("rust-analyzer") == 1 then
