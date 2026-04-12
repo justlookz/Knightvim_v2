@@ -26,13 +26,16 @@ aucmd('LspAttach', {
         local client = vim.lsp.get_client_by_id(args.data.client_id)
         if client then
             vim.lsp.completion.enable(true, client.id, args.buf, {
+                convert = function(item)
+                    return { abbr = item.label:gsub('%b()', '') }
+                end,
             })
             vim.keymap.set("i", "C-n",
                 function()
-                    if vim.fn.pumvisible() ~= 0 then
+                    if tonumber(vim.fn.pumvisible()) ~= 0 then
                         return "C-n"
                     else
-                        return vim.lsp.completion.get
+                        return "<cmd>lua vim.lsp.completion.get()<cr>"
                     end
                 end, { desc = "trigger autocompletion", expr = true })
         end
