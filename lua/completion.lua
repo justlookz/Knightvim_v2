@@ -23,6 +23,8 @@ local lsp_group = augroup("lsp_group2",
 aucmd('LspAttach', {
     group = lsp_group,
     callback = function(args)
+        vim.bo[args.buf].indentexpr = "v:lua.vim.treesitter.indentexpr()"
+
         local client = vim.lsp.get_client_by_id(args.data.client_id)
         if client then
             vim.lsp.completion.enable(true, client.id, args.buf, {
