@@ -4,6 +4,8 @@ vim.g.mapleader = " "
 require "vim._core.ui2" .enable {}
 
 vim.cmd.packadd "nvim.undotree"
+vim.cmd.packadd "nvim.tohtml"
+vim.cmd.packadd "nvim.difftool"
 
 require "option"
 require "autocommand"
