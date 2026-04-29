@@ -1,9 +1,3 @@
-vim.pack.add({
-    'https://github.com/neovim/nvim-lspconfig', -- Required
-    'https://github.com/williamboman/mason.nvim',
-    'https://github.com/williamboman/mason-lspconfig.nvim',
-})
-
 -- Setup Mason
 require('mason').setup()
 -- Setup languages installed from Mason with

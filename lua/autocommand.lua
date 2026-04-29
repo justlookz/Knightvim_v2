@@ -103,10 +103,3 @@ aucmd("InsertLeave", {
         end
     end
 })
-
-aucmd("FileType", {
-    pattern = "*",
-    callback = function()
-        pcall(vim.treesitter.start)
-    end,
-})
