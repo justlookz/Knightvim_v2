@@ -3,14 +3,16 @@ local opt = vim.opt
 
 o.pumborder = "double"
 o.complete = "o"
-
 ---@diagnostic disable-next-line: assign-type-mismatch
 opt.completeopt = { "menu",
     "menuone",
-    "fuzzy",
+    -- "fuzzy",
+    "nosort",
     "popup",
     "nearest",
-    "preinsert" }
+    "noinsert",
+}
+
 o.pummaxwidth = 30
 o.pumheight = 10
 
