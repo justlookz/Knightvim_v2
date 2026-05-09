@@ -12,6 +12,7 @@ require "autocommand"
 require "keymaps"
 require "completion"
 require "externals"
+require "neovide"
 
 vim.lsp.log.set_level(vim.log.levels.OFF)
 
