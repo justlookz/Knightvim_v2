@@ -15,5 +15,6 @@ require "externals"
 require "neovide"
 
 vim.lsp.log.set_level(vim.log.levels.OFF)
-
-vim.cmd.colorscheme "gruvbox"
+if not vim.g.vscode then
+    vim.cmd.colorscheme "gruvbox"
+end

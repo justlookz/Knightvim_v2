@@ -125,6 +125,7 @@ function _G.GitBranchName()
     return ""
 end
 
+if not vim.g.vscode then
 -- StatusLine
 o.statusline =
     '%#PmenuSel# [%{v:lua.StatuslineMode()}] %*'
@@ -132,6 +133,7 @@ o.statusline =
     .. '%=%f'
     .. '%='
     .. '%y %l:%c %*'
+end
 
 function _G.StatuslineMode()
     local modes = {

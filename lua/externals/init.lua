@@ -30,9 +30,10 @@ vim.pack.add {
 require "externals.mini"
 require "externals.lsp"
 require "externals.jdtls"
-require "externals.oil"
-require "externals.colorizer"
-
+if not vim.g.vscode then
+    require "externals.oil"
+    require "externals.colorizer"
+end
 
 require "which-key".setup { preset = "helix" }
 require "todo-comments".setup {}
