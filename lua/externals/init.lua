@@ -14,16 +14,16 @@ vim.pack.add {
     "https://github.com/ellisonleao/gruvbox.nvim",
     {
         src = 'https://github.com/echasnovski/mini.comment',
-        version = vim.version.range("*"),
+        version = 'stable'
     },
 
     {
         src = 'https://github.com/echasnovski/mini.diff',
-        version = vim.version.range("*"),
+        version = 'stable'
     },
     {
         src = 'https://github.com/echasnovski/mini.align',
-        version = vim.version.range("*"),
+        version = 'stable'
     },
 }
 

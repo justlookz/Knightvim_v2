@@ -2,14 +2,14 @@ local o = vim.o
 local opt = vim.opt
 
 o.pumborder = "double"
-o.complete = "o"
+
 ---@diagnostic disable-next-line: assign-type-mismatch
 opt.completeopt = { "menu",
     "menuone",
     -- "fuzzy",
     "nosort",
     "popup",
-    "nearest",
+    -- "nearest",
     "noinsert",
 }
 
@@ -33,15 +33,9 @@ aucmd('LspAttach', {
                 convert = function(item)
                     return { abbr = item.label:gsub('%b()', '') }
                 end,
+                autotrigger = true,
             })
-            vim.keymap.set("i", "C-n",
-                function()
-                    if tonumber(vim.fn.pumvisible()) ~= 0 then
-                        return "C-n"
-                    else
-                        return "<cmd>lua vim.lsp.completion.get()<cr>"
-                    end
-                end, { desc = "trigger autocompletion", expr = true })
+            vim.keymap.set("i", "<c-space>", "<c-x><c-o>")
         end
     end
 })
