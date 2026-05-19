@@ -1,35 +1,23 @@
 return {
-    on_init = function(client)
-        if client.workspace_folders then
-            local path = vim.fs.normalize(client.workspace_folders[1].name)
-            if
-                path ~= vim.fn.stdpath('config')
-                and (vim.uv.fs_stat(path .. '/.luarc.json') or vim.uv.fs_stat(path .. '/.luarc.jsonc'))
-            then
-                return
-            end
-        end
-
-        client.config.settings.Lua = vim.tbl_deep_extend('force', client.config.settings.Lua, {
+    root_markers = { "luac.json", ".git" },
+    settings = {
+        Lua = {
             runtime = {
                 version = 'LuaJIT',
-                path = vim.split(package.path, ";"),
+                path = vim.split(package.path, ";")
             },
             workspace = {
                 checkThirdParty = false,
-            }
-        })
-    end,
-
-    settings = {
-        Lua = {
-            library = {
-                vim.env.VIMRUNTIME,
-                vim.fs.normalize(vim.env.VIMRUNTIME .. "/lua"),
-                '${3rd}/luv/library',
-                '${3rd}/busted/library',
-                vim.fn.stdpath('data'),
-            }
+                library = {
+                    vim.env.VIMRUNTIME,
+                    vim.fs.normalize(vim.env.VIMRUNTIME .. "/lua"),
+                    '${3rd}/luv/library',
+                    '${3rd}/busted/library',
+                    vim.fn.stdpath('data') .. "/lua",
+                    vim.fn.stdpath('data'),
+                }
+            },
         }
     }
 }
+
