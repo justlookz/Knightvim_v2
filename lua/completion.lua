@@ -6,10 +6,8 @@ o.pumborder = "double"
 ---@diagnostic disable-next-line: assign-type-mismatch
 opt.completeopt = { "menu",
     "menuone",
-    -- "fuzzy",
     "nosort",
     "popup",
-    -- "nearest",
     "noinsert",
 }
 
@@ -25,15 +23,12 @@ local lsp_group = augroup("lsp_group2",
 aucmd('LspAttach', {
     group = lsp_group,
     callback = function(args)
-        -- vim.bo[args.buf].indentexpr = "v:lua.vim.treesitter.indentexpr()"
-
         local client = vim.lsp.get_client_by_id(args.data.client_id)
         if client then
             vim.lsp.completion.enable(true, client.id, args.buf, {
                 convert = function(item)
                     return { abbr = item.label:gsub('%b()', '') }
                 end,
-                autotrigger = true,
             })
             vim.keymap.set("i", "<c-space>", "<c-x><c-o>")
         end
