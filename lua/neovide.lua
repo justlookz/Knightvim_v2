@@ -2,8 +2,8 @@ if vim.g.neovide then
     vim.g.neovide_position_animation_length = 0
     vim.g.neovide_cursor_animation_length = 0.01
     vim.g.neovide_cursor_trail_size = 0
-    vim.g.neovide_cursor_animate_in_insert_mode = false
-    vim.g.neovide_cursor_animate_command_line = false
+    vim.g.neovide_cursor_animate_in_insert_mode = true
+    vim.g.neovide_cursor_animate_command_line = true
     vim.g.neovide_scroll_animation_far_lines = 0
     vim.g.neovide_scroll_animation_length = 0.00
 
@@ -16,4 +16,7 @@ if vim.g.neovide then
     vim.g.neovide_normal_opacity = 0.9
 
     vim.g.neovide_cursor_antialiasing = false
+
+    vim.g.neovide_floating_blur_amount_x = 2.0
+    vim.g.neovide_floating_blur_amount_y = 2.0
 end

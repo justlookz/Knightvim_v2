@@ -83,7 +83,7 @@ opt.hidden         = true
 opt.history        = 20
 
 -- Max syntax highlighting per column
-opt.synmaxcol      = 80
+opt.synmaxcol      = 9999
 
 -- History files for presidency
 opt.undofile       = true
