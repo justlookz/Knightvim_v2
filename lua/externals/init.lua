@@ -1,4 +1,6 @@
 vim.pack.add {
+    'https://github.com/saghen/blink.lib',
+    'https://github.com/saghen/blink.cmp',
     "https://github.com/nvim-tree/nvim-web-devicons",
     "https://github.com/nvim-lua/plenary.nvim",
     "https://github.com/catgoose/nvim-colorizer.lua",
@@ -34,6 +36,8 @@ if not vim.g.vscode then
     require "externals.oil"
     require "externals.colorizer"
 end
+
+require "externals.blink"
 
 require "which-key".setup { preset = "helix" }
 require "todo-comments".setup {}

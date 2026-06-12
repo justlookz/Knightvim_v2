@@ -1,5 +1,13 @@
 {
   "plugins": {
+    "blink.cmp": {
+      "rev": "b02ac65634bdb8af2dcc4eb6c807c060e1e15ae6",
+      "src": "https://github.com/saghen/blink.cmp"
+    },
+    "blink.lib": {
+      "rev": "b127d48bf8e9ac9cf41f6e0fbead317503f76558",
+      "src": "https://github.com/saghen/blink.lib"
+    },
     "gruvbox.nvim": {
       "rev": "154eb5ff5b96d0641307113fa385eaf0d36d9796",
       "src": "https://github.com/ellisonleao/gruvbox.nvim"
