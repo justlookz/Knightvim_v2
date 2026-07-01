@@ -31,13 +31,19 @@ local config = {
         "-configuration",
         data .. "/mason/packages/jdtls/config_" .. os_config,
         "-data",
-        workspace_dir,
+        workspace_dir
     },
     filetypes = { "java" },
-
-    root_dir = vim.fs.root(0, { "mvnw", "gradlew", "build.xml" }),
+    root_dir = vim.fs.root(0, {
+        "mvnw",
+        "gradlew",
+        "build.xml",
+        "pom.xml",
+        "build.gradle",
+        "settings.gradle",
+        "settings.gradle.kts"
+    }),
     -- root_markers = { {"mvnw", "gradlew", "build.xml"}, ".git" },
-
     -- Here you can configure eclipse.jdt.ls specific settings
     -- See https://github.com/eclipse/eclipse.jdt.ls/wiki/Running-the-JAVA-LS-server-from-the-command-line#initialize-request
     -- for a list of options
@@ -47,31 +53,52 @@ local config = {
                 toString = {
                     template = "${object.className}{${member.name()}=${member.value}, ${otherMembers}}"
                 },
-                useBlocks = true,
+                useBlocks = true
             },
             project = {
                 sourcePaths = {
-                    "", "src", "src/main", "src/test",
+                    "",
+                    "src",
+                    "src/main",
+                    "src/test",
+                    "app/src/main/java", -- android
                     "src/java"
                 },
                 referencedLibraries = {
                     "../**/libs/**/*.jar",
                     "../**/lib/**/*.jar",
                     "../**/target/**/*.jar",
-                    "*.jar",
+                    "*.jar"
                 }
             }
         }
     },
-
     init_options = {
-        bundles = {}
-    },
+        settings = {
+            java = {
+                imports = {
+                    gradle = {
+                        enabled = true,
+                        wrapper = {
+                            enabled = true,
+                            checksums = {
+                                {
+                                    sha256 = "e2b82129ab64751fd40437007bd2f7f2afb3c6e41a9198e628650b22d5824a14",
+                                    allowed = true
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        -- bundles = {}
+    }
 }
 
 vim.api.nvim_create_autocmd("FileType", {
     pattern = "java",
-    callback = function()
+    callback = function ()
         require('jdtls').start_or_attach(config)
-    end,
+    end
 })

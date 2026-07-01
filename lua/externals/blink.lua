@@ -1,10 +1,11 @@
+---@diagnostic disable: missing-fields, param-type-mismatch
 local cmp = require('blink.cmp')
 cmp.build():pwait()
 cmp.setup {
     fuzzy = { implementation = "prefer_rust" },
     completion = {
         documentation = { auto_show = false },
-        accept = { auto_brackets = { enabled = false } },
+        accept = { auto_brackets = { enabled = true } },
         menu = {
             auto_show = false,
             draw = {
@@ -13,7 +14,7 @@ cmp.setup {
                     { "kind_icon", "kind" }
                 }
             }
-        }
+        },
     },
     keymap = {
         preset = "default",

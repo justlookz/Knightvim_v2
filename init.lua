@@ -1,3 +1,5 @@
+require "greek_keymaps"
+
 ---@diagnostic disable: missing-fields
 vim.g.mapleader = " "
 
