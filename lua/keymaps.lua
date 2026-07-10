@@ -6,17 +6,17 @@ map("n", "x", '"_x', { noremap = true, silent = true })
 
 -- Text movement
 map("i", "<A-j>", "<esc><CMD>m .+1<CR>==gi",
-    { desc = "move down" })
+{ desc = "move down", silent = true })
 map("i", "<A-k>", "<Esc><CMD>m .-2<CR>==gi",
-    { desc = "move up" })
+    { desc = "move up", silent = true })
 map("n", "<A-j>", "<CMD>m .+1<CR>==",
-    { desc = "move down" })
+    { desc = "move down", silent = true })
 map("n", "<A-k>", "<CMD>m .-2<CR>==",
-    { desc = "move up" })
+    { desc = "move up", silent = true })
 map("v", "<A-j>", ":m '>+1<CR>gv=gv",
-    { desc = "move down" })
+    { desc = "move down", silent = true })
 map("v", "<A-k>", ":m '<-2<CR>gv=gv",
-    { desc = "move up" })
+    { desc = "move up", silent = true })
 
 -- Centered movement
 map("n", "<C-d>", "<C-d>zz",

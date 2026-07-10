@@ -29,6 +29,4 @@ local maps = {
 
 for gr, en in pairs(maps) do
     vim.keymap.set({ "n", "o", "v", "x" }, gr, en)
-    vim.keymap.set({ "n", "o", "v", "x" }, "<C-" .. gr .. ">", "<C-" .. en .. ">")
-    vim.keymap.set({ "n", "o", "v", "x" }, "<M-" .. gr .. ">", "<M-" .. en .. ">")
 end
