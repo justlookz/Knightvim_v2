@@ -51,13 +51,3 @@ require "externals.blink"
 require "which-key".setup { preset = "helix" }
 require "todo-comments".setup {}
 require "nvim-autopairs".setup {}
-
-require "gruvbox".setup {
-    italic = {
-        strings = false,
-        emphasis = false,
-        comments = false,
-        operators = false,
-        folds = false,
-    },
-}
