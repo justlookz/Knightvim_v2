@@ -12,3 +12,19 @@ require "mini.diff".setup {
 }
 
 require "mini.align".setup {}
+
+require "mini.splitjoin".setup {}
+
+require "mini.surround".setup {
+    mappings = {
+        add = "gsa",
+        delete = "gsd",
+        find = "gsf",
+        find_left = "gsF",
+        highlight = "gsh",
+        replace = "gsr",
+
+        suffix_last = "p",
+        suffix_next = "n"
+    },
+}

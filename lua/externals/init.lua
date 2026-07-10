@@ -15,17 +15,25 @@ vim.pack.add {
     "https://github.com/epheien/termdbg",
     "https://github.com/ellisonleao/gruvbox.nvim",
     {
-        src = 'https://github.com/echasnovski/mini.comment',
-        version = 'stable'
+        src = "https://github.com/echasnovski/mini.comment",
+        version = "stable"
     },
 
     {
-        src = 'https://github.com/echasnovski/mini.diff',
-        version = 'stable'
+        src = "https://github.com/echasnovski/mini.diff",
+        version = "stable"
     },
     {
-        src = 'https://github.com/echasnovski/mini.align',
-        version = 'stable'
+        src = "https://github.com/echasnovski/mini.align",
+        version = "stable"
+    },
+    {
+        src = "https://github.com/nvim-mini/mini.splitjoin",
+        version = "stable"
+    },
+    {
+        src = "https://github.com/nvim-mini/mini.surround",
+        version = "stable"
     },
 }
 
@@ -39,6 +47,7 @@ end
 
 require "externals.blink"
 
+---@diagnostic disable-next-line: missing-fields, param-type-mismatch
 require "which-key".setup { preset = "helix" }
 require "todo-comments".setup {}
 require "nvim-autopairs".setup {}

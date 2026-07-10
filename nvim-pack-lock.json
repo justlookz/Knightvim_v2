@@ -35,6 +35,16 @@
       "src": "https://github.com/echasnovski/mini.diff",
       "version": "'stable'"
     },
+    "mini.splitjoin": {
+      "rev": "4a0e6f5ea83148f6884eed03f287f94c3f22915d",
+      "src": "https://github.com/nvim-mini/mini.splitjoin",
+      "version": "'stable'"
+    },
+    "mini.surround": {
+      "rev": "580e4cb98c5900d9fe743865fb5a5b2178b4ab18",
+      "src": "https://github.com/nvim-mini/mini.surround",
+      "version": "'stable'"
+    },
     "nvim-autopairs": {
       "rev": "7b9923abad60b903ece7c52940e1321d39eccc79",
       "src": "https://github.com/windwp/nvim-autopairs"
