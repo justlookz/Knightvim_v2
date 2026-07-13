@@ -14,6 +14,7 @@ vim.pack.add {
     "https://github.com/windwp/nvim-autopairs",
     "https://github.com/epheien/termdbg",
     "https://github.com/ellisonleao/gruvbox.nvim",
+    "https://github.com/rebelot/kanagawa.nvim",
     {
         src = "https://github.com/echasnovski/mini.comment",
         version = "stable"
