@@ -9,7 +9,7 @@ require('mason-lspconfig').setup({
     automatic_installation = false,
     automatic_enable = {
         exclude = {
-            "jdtls", "clangd", "lua_ls",
+            "jdtls", "clangd", "lua_ls", "emmylua_ls",
             "tinymist", "gopls", "rust_analyzer",
         }
     }
@@ -28,6 +28,11 @@ if vim.fn.executable("clangd") == 1 then
         cmd = { "clangd", "--clang-tidy" },
     })
     vim.lsp.enable('clangd')
+end
+
+-- Setup clangd language server for java
+if vim.fn.executable("jdtls") == 1 then
+    vim.lsp.enable('jdtls')
 end
 
 -- Setup lua language server for lua

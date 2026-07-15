@@ -4,7 +4,6 @@ vim.pack.add {
     "https://github.com/nvim-tree/nvim-web-devicons",
     "https://github.com/nvim-lua/plenary.nvim",
     "https://github.com/catgoose/nvim-colorizer.lua",
-    "https://github.com/mfussenegger/nvim-jdtls",
     'https://github.com/neovim/nvim-lspconfig', -- Required
     'https://github.com/williamboman/mason.nvim',
     'https://github.com/williamboman/mason-lspconfig.nvim',
@@ -40,7 +39,6 @@ vim.pack.add {
 
 require "externals.mini"
 require "externals.lsp"
-require "externals.jdtls"
 if not vim.g.vscode then
     require "externals.oil"
     require "externals.colorizer"
