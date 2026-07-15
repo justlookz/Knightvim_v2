@@ -57,10 +57,6 @@
       "rev": "149fbd9f5e25511b0a8bad3ccecd43d1bc584f86",
       "src": "https://github.com/catgoose/nvim-colorizer.lua"
     },
-    "nvim-jdtls": {
-      "rev": "6e9d953f0b82bccdb834cfde0e893f3119c22592",
-      "src": "https://github.com/mfussenegger/nvim-jdtls"
-    },
     "nvim-lspconfig": {
       "rev": "d5b6e3db4c17b0146f63a2fc47e2027a754b2cb1",
       "src": "https://github.com/neovim/nvim-lspconfig"
