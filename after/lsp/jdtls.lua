@@ -86,13 +86,15 @@ return {
             detached = config.detached
         })
     end,
+    single_file_support = true,
+    workspace_required = false,
     filetypes = { 'java' },
     root_markers = vim.fn.has('nvim-0.11.3') == 1 and { root_markers1, root_markers2 }
         or vim.list_extend(root_markers1, root_markers2),
     settings = {
         java = {
             configuration = {
-                updateBuildConfiguration = "interactive"
+                updateBuildConfiguration = "automatic"
             },
             codeGeneration = {
                 toString = {
@@ -102,7 +104,7 @@ return {
             },
             project = {
                 sourcePaths = {
-                    "",
+                    ".",
                     "src",
                     "src/main",
                     "src/test",

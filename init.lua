@@ -18,5 +18,5 @@ require "neovide"
 
 vim.lsp.log.set_level(vim.log.levels.OFF)
 if not vim.g.vscode then
-    vim.cmd.colorscheme "kanagawa-wave"
+    vim.cmd.colorscheme "monokai-ristretto"
 end
