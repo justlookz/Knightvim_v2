@@ -1,4 +1,13 @@
----@diagnostic disable: missing-fields, param-type-mismatch
+---@diagnostic disable: missing-fields, param-type-mismatch, redefined-local, unresolved-require
+local has_words_before = function ()
+    local col = vim.api.nvim_win_get_cursor(0)[2]
+    if col == 0 then
+        return false
+    end
+    local line = vim.api.nvim_get_current_line()
+    return line:sub(col, col):match("%s") == nil
+end
+
 local cmp = require('blink.cmp')
 cmp.build():pwait()
 cmp.setup {
@@ -14,10 +23,25 @@ cmp.setup {
                     { "kind_icon", "kind" }
                 }
             }
-        },
+        }
     },
     keymap = {
-        preset = "default",
-        ["<c-n>"] = { "select_next", "show" }
+        preset = "none",
+        ['<Tab>'] = {
+            function (cmp)
+                if has_words_before() then
+                    return cmp.insert_next()
+                end
+            end,
+            'fallback'
+        },
+        -- Navigate to the previous suggestion or cancel completion if currently on the first one.
+        ['<S-Tab>'] = { 'insert_prev' },
+        ['<C-y>'] = {
+            function (cmp)
+                return cmp.select_and_accept({ force = true })
+            end,
+            'fallback'
+        }
     }
 }

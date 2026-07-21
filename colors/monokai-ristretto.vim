@@ -14,7 +14,7 @@ set background=dark
 let s:bg        = "#2C2525"
 let s:bg_alt    = "#3B3232"
 let s:fg        = "#E6D9DB"
-let s:comment   = "#72696A"
+let s:comment   = "#ADDA78"
 let s:red       = "#FD6883"
 let s:green     = "#ADDA78"
 let s:yellow    = "#F9CC6C"
@@ -50,7 +50,7 @@ call s:HL("Pmenu",         s:fg,      s:bg_alt,  "NONE")
 call s:HL("PmenuSel",      s:bg,      s:blue,    "bold")
 
 " Syntax
-call s:HL("Comment",       s:comment, "NONE",    "italic")
+call s:HL("Comment",       s:comment, "NONE",    "NONE")
 call s:HL("Constant",      s:purple,  "NONE",    "NONE")
 call s:HL("String",        s:yellow,  "NONE",    "NONE")
 call s:HL("Character",     s:yellow,  "NONE",    "NONE")
@@ -59,7 +59,7 @@ call s:HL("Boolean",       s:red,     "NONE",    "bold")
 call s:HL("Float",         s:purple,  "NONE",    "NONE")
 
 call s:HL("Identifier",    s:fg,      "NONE",    "NONE")
-call s:HL("Function",      s:green,   "NONE",    "bold")
+call s:HL("Function",      s:purple,  "NONE",    "bold")
 
 call s:HL("Statement",     s:red,     "NONE",    "bold")
 call s:HL("Conditional",   s:red,     "NONE",    "bold")

@@ -46,7 +46,6 @@ end
 
 require "externals.blink"
 
----@diagnostic disable-next-line: missing-fields, param-type-mismatch
 require "which-key".setup { preset = "helix" }
 require "todo-comments".setup {}
 require "nvim-autopairs".setup {}
