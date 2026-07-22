@@ -1,6 +1,5 @@
 require "greek_keymaps"
 
----@diagnostic disable: missing-fields
 vim.g.mapleader = " "
 
 require "vim._core.ui2" .enable {}

@@ -1,5 +1,5 @@
 return {
-    root_markers = { "luac.json", ".git" },
+    root_markers = { ".luarc.json", ".git" },
     settings = {
         Lua = {
             runtime = {
@@ -9,12 +9,8 @@ return {
             workspace = {
                 checkThirdParty = false,
                 library = {
-                    vim.env.VIMRUNTIME,
-                    vim.fs.normalize(vim.env.VIMRUNTIME .. "/lua"),
                     '${3rd}/luv/library',
                     '${3rd}/busted/library',
-                    vim.fn.stdpath('data') .. "/lua",
-                    vim.fn.stdpath('data'),
                 }
             },
         }
