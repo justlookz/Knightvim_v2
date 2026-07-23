@@ -18,8 +18,6 @@ map("v", "<A-j>", ":m '>+1<CR>gv=gv",
 map("v", "<A-k>", ":m '<-2<CR>gv=gv",
     { desc = "move up", silent = true })
 
-map("i", "<tab>", "<C-o>==", { desc = "Emacs like tab", silent = true })
-
 -- Centered movement
 map("n", "<C-d>", "<C-d>zz",
     { desc = "Fast moving down and centered" })
