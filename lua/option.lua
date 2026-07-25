@@ -66,6 +66,9 @@ opt.linebreak      = true
 opt.timeout        = true
 opt.timeoutlen     = 250 -- ms
 
+-- Lazy redraw helps with windows terminal
+opt.lazyredraw = true
+
 -- Encoding
 opt.encoding       = "utf-8"
 opt.showmode       = false
