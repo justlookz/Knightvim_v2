@@ -42,7 +42,7 @@ opt.cursorline     = true
 opt.swapfile       = false
 
 -- Updates after this time
-opt.updatetime     = 250 --ms
+opt.updatetime     = 200 --ms
 
 -- Spaces instead of tabs
 opt.expandtab      = true
@@ -64,7 +64,7 @@ opt.linebreak      = true
 
 -- Timeout options for events
 opt.timeout        = true
-opt.timeoutlen     = 300 -- ms
+opt.timeoutlen     = 250 -- ms
 
 -- Encoding
 opt.encoding       = "utf-8"
@@ -83,7 +83,7 @@ opt.hidden         = true
 opt.history        = 20
 
 -- Max syntax highlighting per column
-opt.synmaxcol      = 9999
+opt.synmaxcol      = 999
 
 -- History files for presidency
 opt.undofile       = true
@@ -111,7 +111,7 @@ opt.laststatus = 3
 -- Completion and staff bordee
 o.winborder    = "bold"
 
--- For long lines, inprove scrolling without jumping arround
+-- For long lines, improve scrolling without jumping arround
 o.smoothscroll = true
 
 -- Path for find - vimgrep
@@ -125,7 +125,7 @@ function _G.GitBranchName()
     return ""
 end
 
-if not vim.g.vscode then
+if not g.vscode then
 -- StatusLine
 o.statusline =
     '%#PmenuSel# [%{v:lua.StatuslineMode()}] %*'
@@ -152,9 +152,11 @@ function _G.Find(cmdarg, _)
     local files
     if vim.fn.executable("fd") == 1 then
         local res = vim.system({"fd", cmdarg}):wait()
+        ---@diagnostic disable-next-line: param-type-mismatch
         files = vim.split(res.stdout, "\n", {trimempty = true})
     elseif vim.fn.executable("find" ) == 1 then
         local res = vim.system({"find *", cmdarg .. "*"}):wait()
+        ---@diagnostic disable-next-line: param-type-mismatch
         files = vim.split(res.stdout, "\n", {trimempty = true})
     else
         files = vim.fn.globpath('.', '**/*', false, true)
