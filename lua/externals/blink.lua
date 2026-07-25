@@ -27,7 +27,7 @@ cmp.setup {
     },
     keymap = {
         preset = "none",
-        ['<Tab>'] = {
+        ["<Tab>"] = {
             function (cmp)
                 if has_words_before() then
                     return cmp.insert_next()
@@ -36,12 +36,16 @@ cmp.setup {
             'fallback'
         },
         -- Navigate to the previous suggestion or cancel completion if currently on the first one.
-        ['<S-Tab>'] = { 'insert_prev' },
-        ['<C-y>'] = {
+        ["<S-Tab>"] = { "insert_prev" },
+        ["<C-n>"] = { "insert_next", "fallback" },
+        ["<C-p>"] = { "insert_prev", "fallback" },
+        ["<C-y>"] = {
             function (cmp)
                 return cmp.select_and_accept({ force = true })
             end,
             'fallback'
-        }
+        },
+        ["C-j"] = {"snippet_backward", "fallback"},
+        ["C-k"] = {"snippet_forward", "fallback"},
     }
 }
