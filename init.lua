@@ -17,5 +17,5 @@ require "neovide"
 
 vim.lsp.log.set_level(vim.log.levels.OFF)
 if not vim.g.vscode then
-    vim.cmd.colorscheme "monokai-ristretto"
+    vim.cmd.colorscheme "monokai-pro"
 end
