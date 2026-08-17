@@ -14,6 +14,7 @@ vim.pack.add {
     "https://github.com/epheien/termdbg",
     "https://github.com/ellisonleao/gruvbox.nvim",
     "https://github.com/rebelot/kanagawa.nvim",
+    "https://github.com/nvim-telescope/telescope.nvim",
     {
         src = "https://github.com/echasnovski/mini.comment",
         version = "stable"
@@ -46,6 +47,7 @@ end
 
 require "externals.blink"
 
+require "externals.telescope"
 require "which-key".setup { preset = "helix" }
 require "todo-comments".setup {}
 require "nvim-autopairs".setup {}

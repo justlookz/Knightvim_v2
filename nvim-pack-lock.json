@@ -73,6 +73,10 @@
       "rev": "74b06c6c75e4eeb3108ec01852001636d85a932b",
       "src": "https://github.com/nvim-lua/plenary.nvim"
     },
+    "telescope.nvim": {
+      "rev": "427b576c16792edad01a92b89721d923c19ad60f",
+      "src": "https://github.com/nvim-telescope/telescope.nvim"
+    },
     "termdbg": {
       "rev": "ac7b794ff66b4591f3eed7816a89e2b4a2dc9289",
       "src": "https://github.com/epheien/termdbg"
