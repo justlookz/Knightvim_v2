@@ -15,6 +15,7 @@ vim.pack.add {
     "https://github.com/ellisonleao/gruvbox.nvim",
     "https://github.com/rebelot/kanagawa.nvim",
     "https://github.com/nvim-telescope/telescope.nvim",
+    "https://github.com/NeogitOrg/neogit",
     {
         src = "https://github.com/echasnovski/mini.comment",
         version = "stable"
@@ -51,3 +52,12 @@ require "externals.telescope"
 require "which-key".setup { preset = "helix" }
 require "todo-comments".setup {}
 require "nvim-autopairs".setup {}
+
+vim.keymap.set("n", "<leader>g", "", { desc = "+Git" })
+
+vim.keymap.set(
+    "n",
+    "<leader>gg",
+    function() require "neogit".open({ kind = "split" }) end,
+    { desc = "Open Neogit UI" }
+)

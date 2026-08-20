@@ -1,7 +1,5 @@
 require "mini.comment".setup {}
 
-vim.keymap.set("n", "<leaded>g", "", { desc = "Git.. " })
-
 require "mini.diff".setup {
     view = { style = 'number' },
     mappings = {

@@ -49,6 +49,10 @@
       "src": "https://github.com/nvim-mini/mini.surround",
       "version": "'stable'"
     },
+    "neogit": {
+      "rev": "37e0f22a2345bad1bffe01b31970885882f46275",
+      "src": "https://github.com/NeogitOrg/neogit"
+    },
     "nvim-autopairs": {
       "rev": "7b9923abad60b903ece7c52940e1321d39eccc79",
       "src": "https://github.com/windwp/nvim-autopairs"
