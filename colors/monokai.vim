@@ -1,5 +1,7 @@
 " File:       monokai.vim
-" Maintainer: Crusoe Xia (crusoexia)
+" This is a copy from monokai vim from maintainer
+" Crusoe Xia (crusoexia)
+" with modified some colors for highter contrast
 " URL:        https://github.com/crusoexia/vim-monokai
 " License:    MIT
 "
@@ -132,7 +134,7 @@ call s:h("CursorLineNr",  { "fg": s:orange,     "bg": s:lightblack })
 call s:h("SignColumn",    {                     "bg": s:lightblack })
 
 " statusline
-call s:h("StatusLine",    { "fg": s:black,      "bg": s:lightgrey })
+call s:h("StatusLine",    { "fg": s:white,      "bg": s:lightgrey })
 call s:h("StatusLineNC",  { "fg": s:lightgrey,  "bg": s:darkblack })
 call s:h("TabLine",       { "fg": s:lightgrey,  "bg": s:lightblack })
 call s:h("TabLineSel",    { "fg": s:darkblack,  "bg": s:warmgrey,     "format": "bold" })
@@ -213,7 +215,7 @@ call s:h("Tag",           { "fg": s:pink })
 "        Debug"
 
 call s:h("Todo",          { "fg": s:orange,   "format": "bold,italic" })
-call s:h("Comment",       { "fg": s:br_green, "format": "italic" })
+call s:h("Comment",       { "fg": s:orange,   "format": "italic" })
                          
 call s:h("Underlined",    { "fg": s:green })
 call s:h("Ignore",        {})
