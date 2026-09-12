@@ -10,3 +10,12 @@ vim.keymap.set("n", "<leader>o",
     end,
     { desc = "Oil" }
 )
+
+vim.keymap.set("n", "-",
+    function()
+        if vim.o.filetype ~= "oil" then
+            require("oil").open()
+        end
+    end,
+    { desc = "Oil" }
+)
