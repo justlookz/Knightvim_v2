@@ -1,4 +1,3 @@
----@diagnostic disable: missing-fields, param-type-mismatch, redefined-local, unresolved-require
 local has_words_before = function ()
     local col = vim.api.nvim_win_get_cursor(0)[2]
     if col == 0 then
