@@ -39,19 +39,25 @@ vim.pack.add {
     },
 }
 
-require "externals.mini"
-require "externals.lsp"
-if not vim.g.vscode then
-    require "externals.oil"
-    require "externals.colorizer"
-end
+-- Lazy Loading
+vim.api.nvim_create_autocmd("VimEnter", {
+    desc = "Init plugins after entering",
+    once = true,
+    callback = function()
+        require "externals.lsp"
+        if not vim.g.vscode then
+            require "externals.oil"
+            require "externals.colorizer"
+        end
 
-require "externals.blink"
+        require "externals.blink"
 
-require "externals.telescope"
-require "which-key".setup { preset = "helix" }
-require "todo-comments".setup {}
-require "nvim-autopairs".setup {}
+        require "externals.telescope"
+        require "which-key".setup { preset = "helix" }
+        require "todo-comments".setup {}
+        require "nvim-autopairs".setup {}
+    end,
+})
 
 vim.keymap.set("n", "<leader>g", "", { desc = "+Git" })
 
