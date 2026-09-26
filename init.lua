@@ -11,7 +11,8 @@ vim.cmd.packadd "nvim.difftool"
 require "option"
 require "autocommand"
 require "keymaps"
-require "completion"
+-- on blink removal
+-- require "completion"
 require "externals"
 require "neovide"
 
