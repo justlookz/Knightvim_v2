@@ -11,6 +11,7 @@ require('mason-lspconfig').setup({
         exclude = {
             "jdtls", "clangd", "lua_ls", "emmylua_ls",
             "tinymist", "gopls", "rust_analyzer",
+            "rust_analyzer",
         }
     }
 })
@@ -65,4 +66,9 @@ end
 -- Setup ty for Python
 if vim.fn.executable("ty") == 1 then
     vim.lsp.enable("ty")
+end
+
+-- Setup rust analyzer for Rust
+if vim.fn.executable("rust-analyzer") == 1 then
+    vim.lsp.enable("rust_analyzer")
 end

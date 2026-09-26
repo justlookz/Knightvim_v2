@@ -12,8 +12,6 @@ vim.pack.add {
     "https://github.com/folke/todo-comments.nvim",
     "https://github.com/windwp/nvim-autopairs",
     "https://github.com/epheien/termdbg",
-    "https://github.com/ellisonleao/gruvbox.nvim",
-    "https://github.com/rebelot/kanagawa.nvim",
     "https://github.com/nvim-telescope/telescope.nvim",
     "https://github.com/NeogitOrg/neogit",
     {
