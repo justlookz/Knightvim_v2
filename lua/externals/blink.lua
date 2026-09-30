@@ -1,5 +1,5 @@
 local function insert_next(cmp)
-    cmp.insert_next()
+    cmp.select_next()
 end
 
 local function show(cmp)
@@ -7,11 +7,13 @@ local function show(cmp)
 end
 
 local function insert_prev(cmp)
-    cmp.insert.prev()
+    cmp.select_prev()
 end
 
-local function fallback(cmp)
-    cmp.fallback()
+local fallback = "fallback"
+
+local function cancel(cmp)
+    return cmp.cancel()
 end
 
 local function select_and_accept(cmp)
@@ -43,24 +45,23 @@ cmp.setup {
             }
         }
     },
-    
+     
     keymap = {
         preset = "none",
         ["<Tab>"] = {
             show,
             insert_next,
-            fallback,
         },
         -- Navigate to the previous suggestion or cancel completion if currently on the first one.
         ["<S-Tab>"] = {  
             show,
             insert_prev,
-            fallback,
         },
         ["<C-n>"] = { insert_next, fallback },
         ["<C-p>"] = { insert_prev, fallback },
         ["<C-y>"] = { select_and_accept, fallback },
-        ["C-j"] = { snippet_backward, fallback },
-        ["C-k"] = { snippet_forward, fallback },
+        ["<C-e>"] = { cancel },
+        ["<C-j>"] = { snippet_backward, fallback },
+        ["<C-k>"] = { snippet_forward, fallback },
     }
 }
