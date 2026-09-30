@@ -117,7 +117,7 @@ o.winborder    = "bold"
 -- For long lines, improve scrolling without jumping arround
 o.smoothscroll = true
 -- Space over and under the cursor
-o.scrolloff = 11
+o.scrolloff = 6
 
 -- Path for find - vimgrep
 o.path = o.path .. ",**"
