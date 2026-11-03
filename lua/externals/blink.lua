@@ -28,6 +28,21 @@ local function snippet_backward(cmp)
     cmp.snippet_backward()
 end
 
+local has_words_before = function()
+  local col = vim.api.nvim_win_get_cursor(0)[2]
+  if col == 0 then
+    return false
+  end
+  local line = vim.api.nvim_get_current_line()
+  return line:sub(col, col):match("%s") == nil
+end
+
+local function tab_complete(cmp)
+    if has_words_before() then
+        return cmp.insert_next()
+    end
+end
+
 local cmp = require('blink.cmp')
 cmp.build():pwait()
 cmp.setup {
@@ -45,12 +60,13 @@ cmp.setup {
             }
         }
     },
-     
+ 
     keymap = {
         preset = "none",
         ["<Tab>"] = {
-            show,
+            tab_complete,
             insert_next,
+            fallback,
         },
         -- Navigate to the previous suggestion or cancel completion if currently on the first one.
         ["<S-Tab>"] = {  

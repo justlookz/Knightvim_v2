@@ -72,3 +72,8 @@ end
 if vim.fn.executable("rust-analyzer") == 1 then
     vim.lsp.enable("rust_analyzer")
 end
+
+-- Setup csharp-ls for C#
+if vim.fn.executable("csharp-ls") == 1 then
+    vim.lsp.enable("csharp_ls")
+end
