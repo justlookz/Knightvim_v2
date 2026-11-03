@@ -3,74 +3,74 @@ syntax reset
 let g:colors_name = "minimal"
 set background=dark
 set t_Co=256
-hi Normal guifg=#dadada ctermbg=NONE guibg=#272935 gui=NONE
 
-hi DiffText guifg=#faf6f6 guibg=NONE
-hi ErrorMsg guifg=#faf6f6 guibg=NONE
-hi WarningMsg guifg=#faf6f6 guibg=NONE
-hi PreProc guifg=#faf6f6 guibg=NONE
-hi Exception guifg=#faf6f6 guibg=NONE
-hi Error guifg=#faf6f6 guibg=NONE
-hi DiffDelete guifg=#faf6f6 guibg=NONE
-hi GitGutterDelete guifg=#faf6f6 guibg=NONE
-hi GitGutterChangeDelete guifg=#faf6f6 guibg=NONE
-hi cssIdentifier guifg=#faf6f6 guibg=NONE
-hi cssImportant guifg=#faf6f6 guibg=NONE
-hi Type guifg=#faf6f6 guibg=NONE
-hi Identifier guifg=#faf6f6 guibg=NONE
-hi PMenuSel guifg=#e9eaec guibg=NONE
-hi Constant guifg=#e9eaec guibg=NONE
-hi Repeat guifg=#e9eaec guibg=NONE
-hi DiffAdd guifg=#e9eaec guibg=NONE
-hi GitGutterAdd guifg=#e9eaec guibg=NONE
-hi cssIncludeKeyword guifg=#e9eaec guibg=NONE
-hi Keyword guifg=#e9eaec guibg=NONE
-hi IncSearch guifg=#e9ff81 guibg=NONE
-hi Title guifg=#e9ff81 guibg=NONE
-hi PreCondit guifg=#e9ff81 guibg=NONE
-hi Debug guifg=#e9ff81 guibg=NONE
-hi SpecialChar guifg=#e9ff81 guibg=NONE
-hi Conditional guifg=#e9ff81 guibg=NONE
-hi Todo guifg=#e9ff81 guibg=NONE
-hi Special guifg=#e9ff81 guibg=NONE
-hi Label guifg=#e9ff81 guibg=NONE
-hi Delimiter guifg=#e9ff81 guibg=NONE
-hi Number guifg=#e9ff81 guibg=NONE
-hi CursorLineNR guifg=#e9ff81 guibg=NONE
-hi Define guifg=#e9ff81 guibg=NONE
-hi MoreMsg guifg=#e9ff81 guibg=NONE
-hi Tag guifg=#e9ff81 guibg=NONE
-hi String guifg=#e9ff81 guibg=NONE
-hi MatchParen guifg=#e9ff81 guibg=NONE
-hi Macro guifg=#e9ff81 guibg=NONE
-hi DiffChange guifg=#e9ff81 guibg=NONE
-hi GitGutterChange guifg=#e9ff81 guibg=NONE
-hi cssColor guifg=#e9ff81 guibg=NONE
-hi Function guifg=#f4f6f8 guibg=NONE
-hi Directory guifg=#f6e1af guibg=NONE
-hi markdownLinkText guifg=#f6e1af guibg=NONE
-hi javaScriptBoolean guifg=#f6e1af guibg=NONE
-hi Include guifg=#f6e1af guibg=NONE
-hi Storage guifg=#f6e1af guibg=NONE
-hi cssClassName guifg=#f6e1af guibg=NONE
-hi cssClassNameDot guifg=#f6e1af guibg=NONE
-hi Statement guifg=#f0f5f6 guibg=NONE
-hi Operator guifg=#f0f5f6 guibg=NONE
-hi cssAttr guifg=#f0f5f6 guibg=NONE
+hi Normal guifg=#ffffff ctermbg=NONE guibg=#000000 gui=NONE
 
+hi DiffText guifg=#eeb2b2 guibg=NONE
+hi ErrorMsg guifg=#eeb2b2 guibg=NONE
+hi WarningMsg guifg=#eeb2b2 guibg=NONE
+hi PreProc guifg=#eeb2b2 guibg=NONE
+hi Exception guifg=#eeb2b2 guibg=NONE
+hi Error guifg=#eeb2b2 guibg=NONE
+hi DiffDelete guifg=#eeb2b2 guibg=NONE
+hi GitGutterDelete guifg=#eeb2b2 guibg=NONE
+hi GitGutterChangeDelete guifg=#eeb2b2 guibg=NONE
+hi cssIdentifier guifg=#eeb2b2 guibg=NONE
+hi cssImportant guifg=#eeb2b2 guibg=NONE
+hi Type guifg=#eeb2b2 guibg=NONE
+hi Identifier guifg=#eeb2b2 guibg=NONE
+hi PMenuSel guifg=#d6fcfd guibg=NONE
+hi Constant guifg=#d6fcfd guibg=NONE
+hi Repeat guifg=#d6fcfd guibg=NONE
+hi DiffAdd guifg=#d6fcfd guibg=NONE
+hi GitGutterAdd guifg=#d6fcfd guibg=NONE
+hi cssIncludeKeyword guifg=#d6fcfd guibg=NONE
+hi Keyword guifg=#d6fcfd guibg=NONE
+hi IncSearch guifg=#dbe6ab guibg=NONE
+hi Title guifg=#dbe6ab guibg=NONE
+hi PreCondit guifg=#dbe6ab guibg=NONE
+hi Debug guifg=#dbe6ab guibg=NONE
+hi SpecialChar guifg=#dbe6ab guibg=NONE
+hi Conditional guifg=#dbe6ab guibg=NONE
+hi Todo guifg=#dbe6ab guibg=NONE
+hi Special guifg=#dbe6ab guibg=NONE
+hi Label guifg=#dbe6ab guibg=NONE
+hi Delimiter guifg=#dbe6ab guibg=NONE
+hi Number guifg=#dbe6ab guibg=NONE
+hi CursorLineNR guifg=#dbe6ab guibg=NONE
+hi Define guifg=#dbe6ab guibg=NONE
+hi MoreMsg guifg=#dbe6ab guibg=NONE
+hi Tag guifg=#dbe6ab guibg=NONE
+hi String guifg=#dbe6ab guibg=NONE
+hi MatchParen guifg=#dbe6ab guibg=NONE
+hi Macro guifg=#dbe6ab guibg=NONE
+hi DiffChange guifg=#dbe6ab guibg=NONE
+hi GitGutterChange guifg=#dbe6ab guibg=NONE
+hi cssColor guifg=#dbe6ab guibg=NONE
+hi Function guifg=#ffffff guibg=NONE
+hi Directory guifg=#dbe6ab guibg=NONE
+hi markdownLinkText guifg=#dbe6ab guibg=NONE
+hi javaScriptBoolean guifg=#dbe6ab guibg=NONE
+hi Include guifg=#dbe6ab guibg=NONE
+hi Storage guifg=#dbe6ab guibg=NONE
+hi cssClassName guifg=#dbe6ab guibg=NONE
+hi cssClassNameDot guifg=#dbe6ab guibg=NONE
+hi Statement guifg=#6de5ff guibg=NONE
+hi Operator guifg=#6de5ff guibg=NONE
+hi cssAttr guifg=#6de5ff guibg=NONE
 
-hi Pmenu guifg=#dadada guibg=#454545
-hi SignColumn guibg=#272935
-hi Title guifg=#dadada
-hi LineNr guifg=#747474 guibg=#272935
-hi NonText guifg=#f3ca8f guibg=#272935
-hi Comment guifg=#f3ca8f gui=italic
-hi SpecialComment guifg=#f3ca8f gui=italic guibg=NONE
+hi Pmenu guifg=#ffffff guibg=#454545
+hi SignColumn
+hi Title guifg=#ffffff
+hi LineNr guifg=#999999
+hi NonText guifg=#f3dcad
+hi Comment guifg=#f3dcad gui=bold
+hi SpecialComment guifg=#f3dcad gui=italic guibg=NONE
 hi CursorLine guibg=#454545
 hi TabLineFill gui=NONE guibg=#454545
-hi TabLine guifg=#747474 guibg=#454545 gui=NONE
-hi StatusLine gui=bold guibg=#454545 guifg=#dadada
-hi StatusLineNC gui=NONE guibg=#272935 guifg=#dadada
-hi Search guibg=#f3ca8f guifg=#dadada
+hi TabLine guifg=#999999 guibg=#454545 gui=NONE
+hi StatusLine gui=bold guibg=#454545 guifg=#ffffff
+hi StatusLineNC gui=NONE guibg=#000000 guifg=#ffffff
+hi Search guibg=#f3dcad guifg=#ffffff
 hi VertSplit gui=NONE guifg=#454545 guibg=NONE
-hi Visual gui=NONE guibg=#454545
+hi Visual gui=NONE guibg=#999999 guifg=#000000
