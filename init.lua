@@ -18,7 +18,7 @@ require "neovide"
 
 vim.lsp.log.set_level(vim.log.levels.OFF)
 if not vim.g.vscode then
-    vim.cmd.colorscheme "monokai"
+    vim.cmd.colorscheme "minimal"
     if not vim.env.TERMUX then -- android emulator
         vim.api.nvim_set_hl(0, "Normal", { bg = nil})
     end

@@ -75,7 +75,7 @@ cmp.setup {
         },
         ["<C-n>"] = { insert_next, fallback },
         ["<C-p>"] = { insert_prev, fallback },
-        ["<C-y>"] = { select_and_accept, fallback },
+        ["<C-y>"] = { select_and_accept },
         ["<C-e>"] = { cancel },
         ["<C-j>"] = { snippet_backward, fallback },
         ["<C-k>"] = { snippet_forward, fallback },
