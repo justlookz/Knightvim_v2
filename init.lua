@@ -9,17 +9,21 @@ vim.cmd.packadd "nvim.tohtml"
 vim.cmd.packadd "nvim.difftool"
 
 require "option"
-require "autocommand"
-require "keymaps"
--- on blink removal
--- require "completion"
 require "externals"
-require "neovide"
+
+vim.api.nvim_create_autocmd("VimEnter", {
+    desc = "Init config lazily",
+    once = true,
+    callback = function()
+        require "autocommand"
+        require "keymaps"
+        -- on blink removal
+        -- require "completion"
+        require "neovide"
+    end,
+})
 
 vim.lsp.log.set_level(vim.log.levels.OFF)
 if not vim.g.vscode then
-    vim.cmd.colorscheme "minimal"
-    if not vim.env.TERMUX then -- android emulator
-        vim.api.nvim_set_hl(0, "Normal", { bg = nil})
-    end
+    vim.cmd.colorscheme "dark-lord"
 end
