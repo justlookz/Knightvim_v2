@@ -54,6 +54,7 @@ vim.api.nvim_create_autocmd("VimEnter", {
         require "which-key".setup { preset = "helix" }
         require "todo-comments".setup {}
         require "nvim-autopairs".setup {}
+        require "neogit"
     end,
 })
 
