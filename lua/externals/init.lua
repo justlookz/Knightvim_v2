@@ -49,12 +49,12 @@ vim.api.nvim_create_autocmd("VimEnter", {
         end
 
         require "externals.blink"
-
+        require "externals.mini"
+        require "externals.colorizer"
         require "externals.telescope"
         require "which-key".setup { preset = "helix" }
         require "todo-comments".setup {}
         require "nvim-autopairs".setup {}
-        require "neogit"
     end,
 })
 

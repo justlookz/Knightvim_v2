@@ -10,12 +10,12 @@ vim.cmd.packadd "nvim.difftool"
 
 require "option"
 require "externals"
+require "autocommand"
 
 vim.api.nvim_create_autocmd("VimEnter", {
     desc = "Init config lazily",
     once = true,
     callback = function()
-        require "autocommand"
         require "keymaps"
         -- on blink removal
         -- require "completion"
