@@ -1,13 +1,13 @@
 local function insert_next(cmp)
-    cmp.select_next()
+    return cmp.select_next()
 end
 
 local function show(cmp)
-    cmp.show()
+    return cmp.show()
 end
 
 local function insert_prev(cmp)
-    cmp.select_prev()
+    return cmp.select_prev()
 end
 
 local fallback = "fallback"
@@ -17,30 +17,31 @@ local function cancel(cmp)
 end
 
 local function select_and_accept(cmp)
-    cmp.select_and_accept { force = true }
+    return cmp.select_and_accept { force = true }
 end
 
 local function snippet_forward(cmp)
-    cmp.snippet_forward()
+    return cmp.snippet_forward()
 end
 
 local function snippet_backward(cmp)
-    cmp.snippet_backward()
+    return cmp.snippet_backward()
 end
 
 local has_words_before = function()
-  local col = vim.api.nvim_win_get_cursor(0)[2]
-  if col == 0 then
-    return false
-  end
-  local line = vim.api.nvim_get_current_line()
-  return line:sub(col, col):match("%s") == nil
+    local col = vim.api.nvim_win_get_cursor(0)[2]
+    if col == 0 then
+        return false
+    end
+    local line = vim.api.nvim_get_current_line()
+    return line:sub(col, col):match("%s") == nil
 end
 
 local function tab_complete(cmp)
     if has_words_before() then
         return cmp.insert_next()
     end
+    return false
 end
 
 local cmp = require('blink.cmp')
@@ -60,7 +61,6 @@ cmp.setup {
             }
         }
     },
- 
     keymap = {
         preset = "none",
         ["<Tab>"] = {
@@ -76,6 +76,7 @@ cmp.setup {
         ["<C-n>"] = { insert_next, fallback },
         ["<C-p>"] = { insert_prev, fallback },
         ["<C-y>"] = { select_and_accept },
+        ["<Return>"] = { select_and_accept, fallback },
         ["<C-e>"] = { cancel },
         ["<C-j>"] = { snippet_backward, fallback },
         ["<C-k>"] = { snippet_forward, fallback },
